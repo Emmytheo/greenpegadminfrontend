@@ -1,0 +1,13 @@
+.login{
+    margin-top: 40px;
+    color: white;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+body{
+    background-color: #2E373F;
+}
