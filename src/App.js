@@ -1,7 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import Login from './Login';
+// import Login from './Login';
+import LoginPage from './assets/components/Pages/LoginPage';
+import SignUpPage from './assets/components/Pages/SignUpPage';
+import LockScreen from './assets/components/Pages/LockScreen';
+import RecoverPswd from './assets/components/Pages/RecoverPswd';
 import Chat from './Chat';
 import client from './feathers';
+import SideMenu from './assets/components/sidemenu/SideMenu';
+import TopBar from './assets/components/topbar/TopBar';
+import Home from './assets/components/Pages/Home';
+import Requests from './assets/components/Pages/Requests';
+import Products from './assets/components/Pages/Products';
+import Blogs from './assets/components/Pages/Blogs';
+import Works from './assets/components/Pages/Works';
+import OEMs from './assets/components/Pages/OEMs';
+import Careers from './assets/components/Pages/Careers';
+import Teams from './assets/components/Pages/Teams';
+import Events from './assets/components/Pages/Events';
+import Admin from './assets/components/Pages/admin';
+import Settings from './assets/components/Pages/settings';
+import './assets/components/Pages/general.css';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
+
+
 
 const messagesService = client.service('messages');
 const usersService = client.service('users');
@@ -10,6 +38,7 @@ const Application = () => {
   const [login, setLogin] = useState(null);
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
+  const [inactive, setInactive] = useState(false) ;
 
   useEffect(() => {
     // Try to authenticate with the JWT stored in localStorage
@@ -65,10 +94,69 @@ const Application = () => {
       </main>
     );
   } else if (login) {
-    return <Chat messages={messages} users={users} />;
+    // console.log(login);
+    // return <Chat messages={messages} users={users} />;
+    return(
+      
+    <Router>
+      {/* <SideMenu onCollapse={(inactive) => {
+        // console.log(inactive);
+        setInactive(inactive);
+      }} />
+      <TopBar 
+        status={inactive}
+      /> */}
+      <Routes>
+          <Route path={'/'} element={<LockScreen />}/>
+          <Route path={'/home'} element={<Home/>}/>
+          <Route path={'/requests'} element={<Requests/>}/>
+          <Route path={'/products'} element={<Products/>}/>
+          <Route path={'/blogs'} element={<Blogs/>}/>
+          <Route path={'/works'} element={<Works/>}/>
+          <Route path={'/oems'} element={<OEMs/>}/>
+          <Route path={'/careers'} element={<Careers/>}/>
+          <Route path={'/teams'} element={<Teams/>}/>
+          <Route path={'/events'} element={<Events/>}/>
+          <Route path={'/login'} element={<LoginPage/>}/>
+          <Route path={'/admin'} element={<Admin/>}/>
+          <Route path={'/settings'} element={<Settings/>}/>
+          <Route path={'/signup'} element={<SignUpPage/>}/>
+          <Route path={'/login'} element={<LoginPage />}/>
+          <Route path={'/signup'} element={<SignUpPage />}/>
+          <Route path={'/recover'} element={<RecoverPswd />}/>
+      </Routes>
+      {/* <div className={`container ${inactive ? 'inactive' : ''}`}>
+        
+      </div> */}
+    </Router>
+    )
   }
-
-  return <Login />;
+  return (
+    // <LoginPage />
+    <Router>
+      <Routes>
+          <Route path={'/'} element={<LockScreen />}/>
+          <Route path={'/home'} element={<Home/>}/>
+          <Route path={'/requests'} element={<Requests/>}/>
+          <Route path={'/products'} element={<Products/>}/>
+          <Route path={'/blogs'} element={<Blogs/>}/>
+          <Route path={'/works'} element={<Works/>}/>
+          <Route path={'/oems'} element={<OEMs/>}/>
+          <Route path={'/careers'} element={<Careers/>}/>
+          <Route path={'/teams'} element={<Teams/>}/>
+          <Route path={'/events'} element={<Events/>}/>
+          <Route path={'/login'} element={<LoginPage/>}/>
+          <Route path={'/admin'} element={<Admin/>}/>
+          <Route path={'/settings'} element={<Settings/>}/>
+          <Route path={'/signup'} element={<SignUpPage/>}/>
+          <Route path={'/login'} element={<LoginPage />}/>
+          <Route path={'/signup'} element={<SignUpPage />}/>
+          <Route path={'/recover'} element={<RecoverPswd />}/>
+      </Routes>
+    </Router>
+        
+  );
+  
 };
 
 export default Application;

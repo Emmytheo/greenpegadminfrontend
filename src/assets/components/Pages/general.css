@@ -1,0 +1,30 @@
+.container {
+    margin-top: 128px;
+    margin-left: 253px;
+    transition: margin-left .2s ease-in;
+    -webkit-transition: margin-left .2s ease-in;
+    -moz-transition: margin-left .2s ease-in;
+    -ms-transition: margin-left .2s ease-in;
+    -o-transition: margin-left .2s ease-in;
+}
+.container h1{
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #6A7D8E;
+
+}
+
+.container.inactive{
+    margin-left: 123px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container.inactive {
+      margin-left: 53px;
+    }
+    
+}

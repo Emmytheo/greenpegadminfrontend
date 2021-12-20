@@ -1,0 +1,207 @@
+/* SideMenu css */
+
+@font-face {
+    font-family: 'product sans';
+    src: url('../../fonts/product\ sans/Product Sans Regular.ttf');
+}
+
+.side-menu{
+    position: fixed;
+    background: #2E373F;
+    width: 200px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 30px 14px;
+    transition: width .2s ease-in;
+    -webkit-transition: width .2s ease-in;
+    -moz-transition: width .2s ease-in;
+    -ms-transition: width .2s ease-in;
+    -o-transition: width .2s ease-in;
+    font-family: 'product sans';
+    z-index: 2;
+    
+}
+.side-menu.inactive{
+    width: 70px;
+}
+
+.side-menu .top-section{
+    position: relative;
+}
+
+.side-menu .top-section .logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    overflow: hidden;
+    /* zoom: 1.10; */
+    
+}
+.side-menu.inactive .top-section .logo{
+    display: none;
+}
+
+.side-menu .top-section .toggle-menu-btn{
+    color: #333;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -70px;
+    cursor: pointer;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    z-index: 1;
+}
+.side-menu.inactive .top-section .toggle-menu-btn{
+    right: -70px;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.side-menu .main-menu{
+    position: relative;
+    top: 50px;
+    margin: 5px 0;
+
+}
+.side-menu .main-menu ul{
+    list-style-type: none;
+    padding-left: 5px;
+
+}
+.side-menu.inactive .main-menu ul{
+    padding-left: 0px;
+
+}
+
+
+.side-menu .main-menu .menu-item{
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    cursor: pointer;
+    
+    
+}
+.side-menu .main-menu .menu-item:hover{
+    background: rgba(255, 255, 255, 0.15);
+    /* opacity: 0.5; */
+    border-radius: 3px;
+}
+.side-menu .main-menu .menu-item.active{
+    background: rgba(255, 255, 255, 0.15);
+    /* opacity: 0.5; */
+    border-radius: 3px;
+    color:#fff
+    
+}
+.side-menu .main-menu .menu-item.active span, .side-menu .main-menu .menu-item.active .menu-icon{
+    opacity: 1;
+    color: #FFFFFF;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+.side-menu .main-menu .menu-item .menu-icon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    opacity: 0.5;
+    font-weight: 700;
+}
+.side-menu .main-menu .menu-item span{
+    position: absolute;
+    display: inline-block;
+    line-height: 40px;
+    font-size: 14px;
+    /* opacity: 0.5; */
+    font-weight: 700;
+    margin-left: 22px;
+    transition: opacity .2 ease-in;
+    -webkit-transition: opacity .2 ease-in;
+    -moz-transition: opacity .2 ease-in;
+    -ms-transition: opacity .2 ease-in;
+    -o-transition: opacity .2 ease-in;
+}
+
+.side-menu.inactive .main-menu .menu-item span{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.side-menu .main-menu .sub-menu{
+    color: #333;
+    margin: 5px 0;
+    margin-left: 20px;
+    border-left: 1px solid #666;
+    box-sizing: border-box;
+    padding-left: 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    -webkit-transition: max-height .2s ease-in;
+    -moz-transition: max-height .2s ease-in;
+    -ms-transition: max-height .2s ease-in;
+    -o-transition: max-height .2s ease-in;
+}
+
+.side-menu .main-menu .sub-menu a{
+    display:block;
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.side-menu .main-menu .sub-menu.active{
+    max-height: 200px;
+}
+
+.l-break{
+    height: 130px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .side-menu{
+        overflow-y: scroll;
+    }
+    .side-menu.inactive {
+      width: 0px;
+      padding: 0px;
+    }
+    .side-menu.inactive .main-menu .menu-item .menu-icon{
+        display: none;
+    }
+    .side-menu .top-section .toggle-menu-btn{
+        position: fixed;
+        top: 33px;
+        left: 220px;
+        width: 20px;
+    }
+    .side-menu.inactive .top-section .toggle-menu-btn{
+        left: 20px;
+        top: 33px;
+    }
+  }

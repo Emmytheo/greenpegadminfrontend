@@ -1,0 +1,10 @@
+.menu{
+    position: absolute;
+    /* max-width: 200px; */
+    display: flex;
+    
+}
+.bg-blue-500{
+    width: 100;
+
+}
