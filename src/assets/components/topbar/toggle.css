@@ -2,7 +2,7 @@
     position: absolute;
     top: 50%;
     left: 85%;
-    margin-left: -70px;
+    margin-left: -40px;
     width: 40px;
     height: 20px;
     transform: translateY(-50%);
@@ -79,14 +79,14 @@
   }
 
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 700px) {
     .toggle{
         left: 85%;
-        margin-left: -70px;
+        margin-left: -20px;
     }
     .toggle.inactive {
       left: 90%;
-      margin-left: -70px;
+      margin-left: -20px;
     }
     
 }

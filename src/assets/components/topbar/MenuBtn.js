@@ -4,7 +4,7 @@ import "./menubtn.css"
 function MenuBtn() {
   return (
     <Menu>
-      <Menu.Button>More</Menu.Button>
+      <Menu.Button className="menubtn"><i className="bi bi-three-dots"></i></Menu.Button>
       <Menu.Items className="menu">
         <Menu.Item>
           {({ active }) => (
@@ -26,9 +26,9 @@ function MenuBtn() {
             </a>
           )}
         </Menu.Item>
-        <Menu.Item disabled>
+        {/* <Menu.Item disabled>
           <span className="opacity-75">Invite a friend (coming soon!)</span>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu.Items>
     </Menu>
   )

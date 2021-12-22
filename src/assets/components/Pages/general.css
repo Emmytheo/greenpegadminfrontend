@@ -1,6 +1,8 @@
 .container {
     margin-top: 128px;
     margin-left: 253px;
+    width: calc(100% - 53px);
+    overflow: hidden;
     transition: margin-left .2s ease-in;
     -webkit-transition: margin-left .2s ease-in;
     -moz-transition: margin-left .2s ease-in;
@@ -13,7 +15,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
-
+    width: 100px;
     color: #6A7D8E;
 
 }
