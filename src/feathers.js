@@ -2,8 +2,8 @@ import feathers from '@feathersjs/client';
 import socketio from '@feathersjs/socketio-client';
 import io from 'socket.io-client';
 
-var URL = process.env.URL || "http://localhost:3030";
-// var URL = "https://greenpegadminbackend.herokuapp.com/";
+// var URL = process.env.URL || "http://localhost:3030";
+var URL = "https://greenpegadminbackend.herokuapp.com/";
 const socket = io(URL);
 const client = feathers();
 
