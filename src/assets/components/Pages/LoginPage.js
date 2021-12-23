@@ -20,6 +20,7 @@ const LoginPage = (props) => {
     }
 
     function login() {
+        setError(null);
         return client
         .authenticate({
             strategy: 'local',
@@ -28,8 +29,19 @@ const LoginPage = (props) => {
         })
         .catch(err => {
             setError(err);
-            window.location.assign("/home");
-        });
+        })
+        .then(res => {
+            if(error){
+                console.log(error);
+            }
+            else{
+                res = {};
+                res.message = "Login Successful";
+                setError(res);
+                // window.location.assign("/home");
+            }
+            
+        })
 
     }
 

@@ -29,7 +29,21 @@ const LockScreen = (props) => {
             email,
             password,
         })
-        .catch(err => setError(err));
+        .catch(err => {
+            setError(err);
+        })
+        .then(res => {
+            if(error){
+                console.log(error);
+            }
+            else{
+                res = {};
+                res.message = "Login Successful";
+                setError(res);
+                // window.location.assign("/home");
+            }
+            
+        });
     }
 
     function signup() {

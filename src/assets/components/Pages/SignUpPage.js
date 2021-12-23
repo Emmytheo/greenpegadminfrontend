@@ -11,11 +11,13 @@ import { NavLink } from "react-router-dom";
 const SignUpPage = (props) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [name, setName] = useState();
     const [error, setError] = useState();
 
     function updateField(cb) {
         return ev => {
         cb(ev.target.value);
+        // console.log(ev.target.value);
         };
     }
 
@@ -26,7 +28,21 @@ const SignUpPage = (props) => {
             email,
             password,
         })
-        .catch(err => setError(err));
+        .catch(err => {
+            setError(err);
+        })
+        .then(res => {
+            if(error){
+                console.log(error);
+            }
+            else{
+                res = {};
+                res.message = "Login Successful";
+                setError(res);
+                // window.location.assign("/home");
+            }
+            
+        });
     }
 
     function signup() {
@@ -67,7 +83,7 @@ const SignUpPage = (props) => {
                 
                                         <div class="mb-3">
                                             <label class="form-label" for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username"></input>
+                                            <input type="text" class="form-control" id="username" onChange={updateField(setName)} placeholder="Enter username"></input>
                                         </div>
                 
                                         <div class="mb-3">
