@@ -19,8 +19,10 @@
     -o-transition: width .2s ease-in;
     font-family: 'product sans';
     z-index: 2;
+    overflow-y: auto;
     
 }
+
 .side-menu.inactive{
     width: 70px;
 }
@@ -182,15 +184,7 @@
     height: 130px;
 }
 
-@media only screen and (max-width: 800px) {
-    .side-menu{
-        overflow-y: scroll;
-    }
-}
 @media only screen and (max-width: 600px) {
-    .side-menu{
-        overflow-y: scroll;
-    }
     .side-menu.inactive {
       width: 0px;
       padding: 0px;
