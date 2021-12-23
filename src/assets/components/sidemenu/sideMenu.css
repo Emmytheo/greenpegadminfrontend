@@ -50,10 +50,10 @@
 .side-menu .top-section .toggle-menu-btn{
     color: #333;
     font-size: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
     transform: translateY(-50%);
-    right: -70px;
+    /* right: -70px; */
     cursor: pointer;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -65,13 +65,19 @@
     -ms-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     z-index: 1;
+    position: fixed;
+    top: 33px;
+    left: 220px;
+    width: 20px;
 }
 .side-menu.inactive .top-section .toggle-menu-btn{
-    right: -70px;
-    color: black;
+    /* right: -70px; */
+    color: #333;
     font-size: 20px;
     font-weight: 700;
     z-index: 10;
+    left: 90px;
+    top: 33px;
 }
 
 .side-menu .main-menu{
