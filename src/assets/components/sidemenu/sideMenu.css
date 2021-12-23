@@ -182,7 +182,11 @@
     height: 130px;
 }
 
-
+@media only screen and (max-width: 800px) {
+    .side-menu{
+        overflow-y: scroll;
+    }
+}
 @media only screen and (max-width: 600px) {
     .side-menu{
         overflow-y: scroll;
