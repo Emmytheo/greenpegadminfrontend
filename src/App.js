@@ -57,16 +57,17 @@ const Application = () => {
           },
         }),
         usersService.find(),
-      ]).then(([messagePage, userPage]) => {
-        // We want the latest messages but in the reversed order
-        const messagesResult = messagePage.data.reverse();
-        const usersResult = userPage.data;
+      ])
+      // .then(([messagePage, userPage]) => {
+      //   // We want the latest messages but in the reversed order
+      //   const messagesResult = messagePage.data.reverse();
+      //   const usersResult = userPage.data;
 
-        // Once both return, update the state
-        setLogin(loginResult);
-        setMessages(messagesResult);
-        setUsers(usersResult);
-      });
+      //   // Once both return, update the state
+      //   setLogin(loginResult);
+      //   setMessages(messagesResult);
+      //   setUsers(usersResult);
+      // });
     });
 
     // On logout reset all all local state (which will then show the login screen)
@@ -76,10 +77,10 @@ const Application = () => {
       setUsers([]);
     });
 
-    // Add new messages to the message list
-    messagesService.on('created', message =>
-      setMessages(currentMessages => currentMessages.concat(message))
-    );
+    // // Add new messages to the message list
+    // messagesService.on('created', message =>
+    //   setMessages(currentMessages => currentMessages.concat(message))
+    // );
 
     // Add new users to the user list
     usersService.on('created', user =>
