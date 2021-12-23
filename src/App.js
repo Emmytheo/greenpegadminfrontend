@@ -49,15 +49,16 @@ const Application = () => {
     // On successfull login
     client.on('authenticated', loginResult => {
       // Get all users and messages
-      Promise.all([
-        messagesService.find({
-          query: {
-            $sort: { createdAt: -1 },
-            $limit: 25,
-          },
-        }),
-        usersService.find(),
-      ])
+      // Promise.all([
+      //   messagesService.find({
+      //     query: {
+      //       $sort: { createdAt: -1 },
+      //       $limit: 25,
+      //     },
+      //   }),
+      //   usersService.find(),
+      // ])
+      // window.location.assign("/home");
       // .then(([messagePage, userPage]) => {
       //   // We want the latest messages but in the reversed order
       //   const messagesResult = messagePage.data.reverse();

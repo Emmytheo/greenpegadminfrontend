@@ -13,6 +13,7 @@ const SignUpPage = (props) => {
     const [password, setPassword] = useState();
     const [name, setName] = useState();
     const [error, setError] = useState();
+    var errr = null;
 
     function updateField(cb) {
         return ev => {
@@ -22,6 +23,8 @@ const SignUpPage = (props) => {
     }
 
     function login() {
+        setError(null);
+        errr = null;
         return client
         .authenticate({
             strategy: 'local',
@@ -30,19 +33,19 @@ const SignUpPage = (props) => {
         })
         .catch(err => {
             setError(err);
+            errr = err;
+            
         })
         .then(res => {
-            if(error){
-                console.log(error);
+            if(errr != null){
+                setError(errr);
             }
             else{
-                res = {};
-                res.message = "Login Successful";
-                setError(res);
-                // window.location.assign("/home");
+                document.getElementById('info').innerText = "Login Successful";
+                window.location.assign("/home");
             }
             
-        });
+        })
     }
 
     function signup() {
@@ -68,9 +71,9 @@ const SignUpPage = (props) => {
                             <div class="text-center mt-2">
                                     <h5 class="txt-primary">Register Account</h5>
                                     { error ? 
-                                    ( <p>{error && error.message}</p> ) : 
+                                    ( <p id="info">{error && error.message}</p> ) : 
                                     (
-                                        <p class="text-muted">Get your free Greenpeg Admin account now.</p>
+                                        <p id="info" class="text-muted">Get your free Greenpeg Admin account now.</p>
                                     )}
                                 </div>
                                 <div class="p-2 mt-4">
