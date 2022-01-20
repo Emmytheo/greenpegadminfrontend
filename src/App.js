@@ -38,13 +38,13 @@ const Application = () => {
   const [login, setLogin] = useState(null);
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
-  const [inactive, setInactive] = useState(false) ;
+  // const [inactive, setInactive] = useState(false) ;
 
-  useEffect(() => {
-    // Try to authenticate with the JWT stored in localStorage
-    client.authenticate().catch(() => {
-      setLogin(null);
-    });
+    useEffect(() => {
+      // Try to authenticate with the JWT stored in localStorage
+      client.authenticate().catch(() => {
+        setLogin(null);
+      });
 
     // On successfull login
     client.on('authenticated', loginResult => {

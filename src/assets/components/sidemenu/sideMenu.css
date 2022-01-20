@@ -8,6 +8,8 @@
 .side-menu{
     position: fixed;
     background: #2E373F;
+    top: 0px;
+    left: 0px;
     width: 200px;
     height: 100%;
     box-sizing: border-box;

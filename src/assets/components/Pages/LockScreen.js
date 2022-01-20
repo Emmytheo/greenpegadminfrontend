@@ -65,34 +65,34 @@ const LockScreen = (props) => {
                         </center>
                         <Card>
                             <Card.Body>
-                            <div class="text-center mt-2">
-                                        <h5 class="txt-primary">LockScreen</h5>
+                            <div className="text-center mt-2">
+                                        <h5 className="txt-primary">LockScreen</h5>
                                         { error ? 
                                         ( <p id="info">{error && error.message}</p> ) : 
                                         (
-                                            <p id="info" class="text-muted">Enter your password to unlock the screen!</p>
+                                            <p id="info" className="text-muted">Enter your password to unlock the screen!</p>
                                         )}
                                     </div>
-                                    <div class="p-2 mt-4">
-                                        <div class="user-thumb text-center mb-4">
-                                            <img src={avatar} class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail"/>
-                                            <h5 class="font-size-15 mt-3 font-size-14">Admin</h5>
+                                    <div className="p-2 mt-4">
+                                        <div className="user-thumb text-center mb-4">
+                                            <img src={avatar} className="rounded-circle img-thumbnail avatar-lg" alt="thumbnail"/>
+                                            <h5 className="font-size-15 mt-3 font-size-14">Admin</h5>
                                         </div>
                                         <form>
             
-                                            <div class="mb-3">
-                                                <label class="form-label" for="password">Password</label>
-                                                <input type="password" class="form-control" id="password" placeholder="Enter password" onChange={updateField(setPassword)}></input>
+                                            <div className="mb-3">
+                                                <label className="form-label" for="password">Password</label>
+                                                <input type="password" className="form-control" id="password" placeholder="Enter password" onChange={updateField(setPassword)}></input>
                                             </div>
                                             
-                                            <div class="mt-3 text-end">
-                                                <button class="btn btn-primary w-sm waves-effect waves-light" id="login" onClick={() => login()} type="button">Unlock</button>
+                                            <div className="mt-3 text-end">
+                                                <button className="btn btn-primary w-sm waves-effect waves-light" id="login" onClick={() => login()} type="button">Unlock</button>
                                             </div>
                 
     
-                                            <div class="mt-4 text-center">
+                                            <div className="mt-4 text-center">
                                                 
-                                                <p class="mb-0">Not you ? return <NavLink to={"/login"}><a class="fw-medium txt-primary"> Sign In </a></NavLink></p>
+                                                <p className="mb-0">Not you ? return <NavLink to={"/login"}><a className="fw-medium txt-primary"> Sign In </a></NavLink></p>
                                                 
                                                 
                                             </div>

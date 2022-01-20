@@ -68,70 +68,70 @@ const SignUpPage = (props) => {
                         </center>
                         <Card>
                             <Card.Body>
-                            <div class="text-center mt-2">
-                                    <h5 class="txt-primary">Register Account</h5>
+                            <div className="text-center mt-2">
+                                    <h5 className="txt-primary">Register Account</h5>
                                     { error ? 
                                     ( <p id="info">{error && error.message}</p> ) : 
                                     (
-                                        <p id="info" class="text-muted">Get your free Greenpeg Admin account now.</p>
+                                        <p id="info" className="text-muted">Get your free Greenpeg Admin account now.</p>
                                     )}
                                 </div>
-                                <div class="p-2 mt-4">
+                                <div className="p-2 mt-4">
                                     <form>
         
-                                        <div class="mb-3">
-                                            <label class="form-label" for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" onChange={updateField(setEmail)} placeholder="Enter email"></input>        
+                                        <div className="mb-3">
+                                            <label className="form-label" for="email">Email</label>
+                                            <input type="email" className="form-control" id="email" onChange={updateField(setEmail)} placeholder="Enter email"></input>        
                                         </div>
                 
-                                        <div class="mb-3">
-                                            <label class="form-label" for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" onChange={updateField(setName)} placeholder="Enter username"></input>
+                                        <div className="mb-3">
+                                            <label className="form-label" for="username">Username</label>
+                                            <input type="text" className="form-control" id="username" onChange={updateField(setName)} placeholder="Enter username"></input>
                                         </div>
                 
-                                        <div class="mb-3">
-                                            <label class="form-label" for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Enter password" onChange={updateField(setPassword)}></input>        
+                                        <div className="mb-3">
+                                            <label className="form-label" for="password">Password</label>
+                                            <input type="password" className="form-control" id="password" placeholder="Enter password" onChange={updateField(setPassword)}></input>        
                                         </div>
 
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="auth-terms-condition-check"></input>
-                                            <label class="form-check-label" for="auth-terms-condition-check">I accept <a href="javascript: void(0);" class="text-dark">Terms and Conditions</a></label>
+                                        <div className="form-check">
+                                            <input type="checkbox" className="form-check-input" id="auth-terms-condition-check"></input>
+                                            <label className="form-check-label" for="auth-terms-condition-check">I accept <a href="javascript: void(0);" className="text-dark">Terms and Conditions</a></label>
                                         </div>
 
                                     
                                         
-                                        <div class="mt-3 text-end">
-                                            <button class="btn btn-primary w-sm waves-effect waves-light" id="signup" onClick={() => signup()} type="button">Register</button>
+                                        <div className="mt-3 text-end">
+                                            <button className="btn btn-primary w-sm waves-effect waves-light" id="signup" onClick={() => signup()} type="button">Register</button>
                                         </div>
             
-                                        <div class="mt-4 text-center">
-                                            <div class="signin-other-title">
-                                                <h5 class="font-size-14 mb-3 title">Sign up using</h5>
+                                        <div className="mt-4 text-center">
+                                            <div className="signin-other-title">
+                                                <h5 className="font-size-14 mb-3 title">Sign up using</h5>
                                             </div>
                                             
             
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
-                                                        <i class="bi bi-facebook"></i>
+                                            <ul className="list-inline">
+                                                <li className="list-inline-item">
+                                                    <a href="javascript:void()" className="social-list-item bg-primary text-white border-primary">
+                                                        <i className="bi bi-facebook"></i>
                                                     </a>
                                                 </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-info text-white border-info">
-                                                        <i class="bi bi-twitter"></i>
+                                                <li className="list-inline-item">
+                                                    <a href="javascript:void()" className="social-list-item bg-info text-white border-info">
+                                                        <i className="bi bi-twitter"></i>
                                                     </a>
                                                 </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-danger text-white border-danger">
-                                                        <i class="bi bi-google"></i>
+                                                <li className="list-inline-item">
+                                                    <a href="javascript:void()" className="social-list-item bg-danger text-white border-danger">
+                                                        <i className="bi bi-google"></i>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
 
-                                        <div class="mt-4 text-center">
-                                            <p class="text-muted mb-0">Already have an account ? <NavLink to={"/login"}><a class="fw-medium txt-primary"> Login</a></NavLink></p>
+                                        <div className="mt-4 text-center">
+                                            <p className="text-muted mb-0">Already have an account ? <NavLink to={"/login"}><a className="fw-medium txt-primary"> Login</a></NavLink></p>
                                         </div>
                                     </form>
                                 </div>

@@ -3,7 +3,7 @@ import SideMenu from "../sidemenu/SideMenu";
 import TopBar from "../topbar/TopBar";
 
 
-const Settings = () => {
+const Settings = (props) => {
     const [inactive, setInactive] = useState(false) ;
     return (
         <div>

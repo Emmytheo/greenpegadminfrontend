@@ -79,19 +79,19 @@ const LoginPage = (props) => {
                                     <form>
                                         <div className="mb-3">
                                             <label className="form-label" for="email">Username</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Enter email" onChange={updateField(setEmail)}></input>
+                                            <input type="email" className="form-control" id="email" placeholder="Enter email" onChange={updateField(setEmail)}></input>
                                         </div>
                 
                                         <div className="mb-3">
                                             <div className="float-end">
-                                                <NavLink to={"/recover"}><a class="text-muted">Forgot password?</a></NavLink>
+                                                <NavLink to={"/recover"}><a className="text-muted">Forgot password?</a></NavLink>
                                             </div>
                                             <label className="form-label" for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Enter password" onChange={updateField(setPassword)}></input>
+                                            <input type="password" className="form-control" id="password" placeholder="Enter password" onChange={updateField(setPassword)}></input>
                                         </div>
                 
                                         <div className="form-check">
-                                            <input type="checkbox" class="form-check-input" id="auth-remember-check"></input>
+                                            <input type="checkbox" className="form-check-input" id="auth-remember-check"></input>
                                             <label className="form-check-label" for="auth-remember-check">Remember me</label>
                                         </div>
                                         
@@ -109,17 +109,17 @@ const LoginPage = (props) => {
             
                                             <ul className="list-inline">
                                                 <li className="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
+                                                    <a href="javascript:void()" className="social-list-item bg-primary text-white border-primary">
                                                         <i className="bi bi-facebook"></i>
                                                     </a>
                                                 </li>
                                                 <li className="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-info text-white border-info">
+                                                    <a href="javascript:void()" className="social-list-item bg-info text-white border-info">
                                                         <i className="bi bi-twitter"></i>
                                                     </a>
                                                 </li>
                                                 <li className="list-inline-item">
-                                                    <a href="javascript:void()" class="social-list-item bg-danger text-white border-danger">
+                                                    <a href="javascript:void()" className="social-list-item bg-danger text-white border-danger">
                                                         <i className="bi bi-google"></i>
                                                     </a>
                                                 </li>
@@ -127,7 +127,7 @@ const LoginPage = (props) => {
                                         </div>
 
                                         <div className="mt-4 text-center">
-                                            <p className="mb-0">Don't have an account ? <NavLink to={"/signup"}><a class="fw-medium txt-primary"> Signup now </a></NavLink>  </p>
+                                            <p className="mb-0">Don't have an account ? <NavLink to={"/signup"}><a className="fw-medium txt-primary"> Signup now </a></NavLink>  </p>
                                         </div>
                                     </form>
                                 </div>

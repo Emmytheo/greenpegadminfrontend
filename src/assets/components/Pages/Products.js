@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SideMenu from "../sidemenu/SideMenu";
 import TopBar from "../topbar/TopBar";
 
-const Products = () => {
+const Products = (props) => {
   const [inactive, setInactive] = useState(false) ;
   return (
       <div>

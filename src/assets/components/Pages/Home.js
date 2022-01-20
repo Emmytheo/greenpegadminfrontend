@@ -3,12 +3,14 @@ import SideMenu from "../sidemenu/SideMenu";
 import TopBar from "../topbar/TopBar";
 
 
-const Home = () => {
+const Home = (props) => {
     const [inactive, setInactive] = useState(false) ;
+    
+    
     return (
         <div>
             <SideMenu onCollapse={(inactive) => {
-                // console.log(inactive);
+                console.log(inactive);
                 setInactive(inactive);
             }} />
             <TopBar 

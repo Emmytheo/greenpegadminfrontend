@@ -22,7 +22,7 @@
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
-    max-width: 200px;
+    max-width: 210px;
     min-width: 100px;
     display: inline-block;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -37,15 +37,53 @@
 }
 .menu a{
     width: 100%;
-    display: inline-block;
-    /*padding: 5px 10px;
-    */padding: 12px 10px;
+    display: block;
+    padding: 5px 10px;
     background-color: #f9f9f9;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    color: #6A7D8E;
+
+
+}
+.menu a .icon{
+    /* max-width: 50px; */
+    display: inline-block;
+    /* margin-left: 10px; */
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    line-height: 5px;
+    text-align: center;
+}
+
+.menu a .content{
+    /* max-width: 150px; */
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 0px;
+}
+.menu a .content p{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+.menu a:hover{
+    background: #6a7d8e11;
+    opacity: 0.8;
+    border-radius: 3px;
+
+    
+    
 }
 
 @media only screen and (max-width: 700px) {

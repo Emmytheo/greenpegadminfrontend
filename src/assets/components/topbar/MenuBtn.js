@@ -9,20 +9,46 @@ function MenuBtn() {
         <Menu.Item>
           {({ active }) => (
             <a
-              className={`${active && 'bg-blue-500'}`}
+              className={`${active && 'topbar-drpdwn'}`}
               href="/account-settings"
             >
-              Account settings
+              <div className='icon'>
+                <center>
+                  <i className="bi bi-person"></i>
+                </center>
+                
+              </div>
+              <div className='content'>
+                <center>
+                  <p>
+                    My Account
+                  </p>
+                </center>
+                
+              </div>
             </a>
           )}
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
             <a
-              className={`${active && 'bg-blue-500'}`}
+              className={`${active && 'topbar-drpdwn'}`}
               href="/account-settings"
             >
-              Documentation
+              <div className='icon'>
+                <center>
+                  <i className="bi bi-box-arrow-left"></i>
+                </center>
+                
+              </div>
+              <div className='content'>
+                <center>
+                  <p>
+                    Logout
+                  </p>
+                </center>
+                
+              </div>
             </a>
           )}
         </Menu.Item>

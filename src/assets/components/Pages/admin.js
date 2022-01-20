@@ -3,7 +3,7 @@ import SideMenu from "../sidemenu/SideMenu";
 import TopBar from "../topbar/TopBar";
 
 
-const Admin = () => {
+const Admin = (props) => {
     const [inactive, setInactive] = useState(false) ;
     return (
         <div>

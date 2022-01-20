@@ -50,28 +50,28 @@ const RecoverPswd = (props) => {
                         </center>
                         <Card>
                             <Card.Body>
-                            <div class="text-center mt-2">
-                                        <h5 class="txt-primary">Reset Password</h5>
-                                        <p class="text-muted">Reset Password with Greenpeg Account Manager.</p>
+                            <div className="text-center mt-2">
+                                        <h5 className="txt-primary">Reset Password</h5>
+                                        <p className="text-muted">Reset Password with Greenpeg Account Manager.</p>
                                     </div>
-                                    <div class="p-2 mt-4">
-                                        <div class="alert alert-success text-center mb-4" role="alert">
+                                    <div className="p-2 mt-4">
+                                        <div className="alert alert-success text-center mb-4" role="alert">
                                             Enter your Email and instructions will be sent to you!
                                         </div>
                                         <form action="https://themesbrand.com/minible/layouts/index.html">
             
-                                            <div class="mb-3">
-                                                <label class="form-label" for="useremail">Email</label>
-                                                <input type="email" class="form-control" id="useremail" placeholder="Enter email"></input>
+                                            <div className="mb-3">
+                                                <label className="form-label" for="useremail">Email</label>
+                                                <input type="email" className="form-control" id="useremail" placeholder="Enter email"></input>
                                             </div>
                                             
-                                            <div class="mt-3 text-end">
-                                                <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">Reset</button>
+                                            <div className="mt-3 text-end">
+                                                <button className="btn btn-primary w-sm waves-effect waves-light" type="submit">Reset</button>
                                             </div>
                 
     
-                                            <div class="mt-4 text-center">
-                                                <p class="mb-0">Remember It ? <NavLink to={"/login"}><a class="fw-medium txt-primary"> Sign in </a></NavLink> </p>
+                                            <div className="mt-4 text-center">
+                                                <p className="mb-0">Remember It ? <NavLink to={"/login"}><a className="fw-medium txt-primary"> Sign in </a></NavLink> </p>
                                             </div>
                                         </form>
                                     </div>
