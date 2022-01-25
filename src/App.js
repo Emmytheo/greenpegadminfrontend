@@ -21,11 +21,13 @@ import Admin from './assets/components/Pages/admin';
 import Settings from './assets/components/Pages/settings';
 import './assets/components/Pages/general.css';
 
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
+
 
 
 
@@ -38,9 +40,11 @@ const Application = () => {
   const [login, setLogin] = useState(null);
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
+  
   // const [inactive, setInactive] = useState(false) ;
 
     useEffect(() => {
+      
       // Try to authenticate with the JWT stored in localStorage
       client.authenticate().catch(() => {
         setLogin(null);
@@ -82,11 +86,18 @@ const Application = () => {
     // messagesService.on('created', message =>
     //   setMessages(currentMessages => currentMessages.concat(message))
     // );
+    // Select.setup();
 
     // Add new users to the user list
     usersService.on('created', user =>
       setUsers(currentUsers => currentUsers.concat(user))
+
     );
+
+    
+
+
+
   }, []);
 
   if (login === undefined) {

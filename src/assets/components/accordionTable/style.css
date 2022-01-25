@@ -1,10 +1,19 @@
-main { margin: auto; max-width: 960px; }
+main { margin: auto;  }
 
 .table-container {
   margin: 10px;
   padding: 0;
-  border: 1px solid #e5e5e5;
-  border-radius: 5px;
+  /* border: 1px solid #e5e5e5;
+  border-radius: 5px; */
+}
+.table{
+  border: 1.5px solid rgba(180, 189, 189, 0.3);
+  box-sizing: border-box;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 tr.expandable > td {
@@ -15,4 +24,21 @@ tr.expandable > td {
 tr.expandable > td > .inner {
   margin: 15px;
   overflow: hidden;
+}
+
+.uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd){
+  border-top: none; 
+  border-bottom: none;
+}
+.table-btm, .table-btm > *{
+  font-size: 12px;
+  vertical-align: middle;
+  align-items: center;
+  /* margin-bottom: 0px; */
+}
+
+@media only screen and (max-width: 1000px){
+  .table-btm{
+    float: none;
+  }
 }

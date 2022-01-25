@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { slideDown, slideUp } from './anim';
 import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Row, Col, Container } from 'react-bootstrap'
+import Select from '../basicComponents.js/select';
 
 
 function formatDate(str) {
@@ -81,13 +84,16 @@ class UserTableRow extends React.Component {
 
 
 
-class App extends React.Component {
+class Table extends React.Component {
   state = { users: null }
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/1.1/?results=15')
-      .then(response => response.json())
-      .then(data => { this.setState({users: data.results}) });
+    // fetch('https://randomuser.me/api/1.1/?results=15')
+    //   .then(response => response.json())
+    //   .then(data => { 
+    //     this.setState({users: data.results});
+    //     console.log(data.results);
+    //   });
   }
 
   render() {
@@ -97,7 +103,7 @@ class App extends React.Component {
       <main>
         <div className="table-container">
           <div className="uk-overflow-auto">
-            <table className="uk-table uk-table-hover uk-table-middle uk-table-divider">
+            <table className="uk-table uk-table-hover uk-table-striped uk-table-small">
               <thead>
                 <tr>
                   <th className="uk-table-shrink" />
@@ -118,10 +124,45 @@ class App extends React.Component {
               </tbody>
             </table>
           </div>
+          <br/>
+          <Row>
+            <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
+              <Card.Body className='uk-float-left table-btm all-inline'>
+                  <p className=''>Show rows :</p>
+                  <div className='pag-sel'>
+                      <Select 
+                      items={[
+                        {name: 1}
+                      ]}
+                    />
+                  </div>
+                  
+                  <ul className='all-inline pag-list'>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                  </ul>
+              </Card.Body>
+            </Col>
+            <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
+              <Card.Body className='uk-float-right table-btm all-inline'>
+                <ul className='all-inline pag-list'>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                </ul>
+              </Card.Body>
+            </Col>
+        </Row>
         </div>
       </main>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+export default Table;
+// render(<App />, document.getElementById('root'));

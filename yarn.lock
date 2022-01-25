@@ -4080,6 +4080,23 @@ cyclist@^1.0.1:
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-1.0.1.tgz"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+"d3-color@1 - 3":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-3.0.1.tgz#03316e595955d1fcd39d9f3610ad41bb90194d0a"
+  integrity sha512-6/SlHkDOBLyQSJ1j1Ghs82OIUXpKWlR0hCsw0XrLSQhuUPuCSmLQ1QPH98vpnQxMUQM2/gfAkUEWsupVpd9JGw==
+
+d3-ease@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/d3-ease/-/d3-ease-3.0.1.tgz#9658ac38a2140d59d346160f1f6c30fda0bd12f4"
+  integrity sha512-wR/XK3D3XcLIZwpbvQwQ5fK+8Ykds1ip7A2Txe0yxncXSdq1L9skcG7blcedkOX+ZcgxGAmLX1FrRGbADwzi0w==
+
+d3-interpolate@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-3.0.1.tgz#3c47aa5b32c5b3dfb56ef3fd4342078a632b400d"
+  integrity sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==
+  dependencies:
+    d3-color "1 - 3"
+
 d@1, d@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/d/-/d-1.0.1.tgz"
@@ -10906,6 +10923,11 @@ uberproto@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/uberproto/-/uberproto-2.0.6.tgz"
   integrity sha512-68H97HffZoFaa3HFtpstahWorN9dSp5uTU6jo3GjIQ6JkJBR3hC2Nx/e/HFOoYHdUyT/Z1MRWfxN1EiQJZUyCQ==
+
+uikit@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.10.1.tgz#8862555d8e2e4faf9d4de834d37cab1c41ffe2a4"
+  integrity sha512-aUSO+NIb9EVLoWWWYRDlthB0om6jLTWJ/Qhx3mbXKCW2TKGtWGsrdZdlQKAWRHsz/eeog9Eg89DOPtg5ZuMwoA==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
