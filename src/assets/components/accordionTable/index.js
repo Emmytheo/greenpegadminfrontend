@@ -89,7 +89,7 @@ class Table extends React.Component {
   state = { users: null }
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/1.1/?results=15')
+    fetch('https://randomuser.me/api/1.1/?results=10')
       .then(response => response.json())
       .then(data => { 
         this.setState({users: data.results});
