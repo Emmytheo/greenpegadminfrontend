@@ -62,7 +62,7 @@
 /* Style items (options): */
 .select-items {
     position: absolute;
-    min-width: 130%;
+    min-width: 100%;
     top: 100%;
     left: 0;
     right: 0;

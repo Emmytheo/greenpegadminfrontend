@@ -34,7 +34,70 @@ tr.expandable > td > .inner {
   font-size: 12px;
   vertical-align: middle;
   align-items: center;
-  /* margin-bottom: 0px; */
+  display: flex;
+  margin-bottom: 0px;
+}
+
+.pag-list > *{
+  margin: auto 10px;
+  
+}
+
+.pag-list, .table-btm > p{
+  margin-top: 1px;
+}
+
+.pag-sel{
+  width: 54px;
+  
+  font-size: 12px;
+  
+}
+.no-marg-btm{
+  margin-bottom: 0px;
+}
+.pag-sel .custom-select{
+  border: 1px solid #2AC940 !important;
+  background: #2AC940;
+  border-radius: 3px;
+  
+}
+
+.pag-sel .custom-select .select-selected:after{
+  border-color: white transparent transparent transparent;
+}
+
+.pag-sel .custom-select .select-selected.select-arrow-active:after {
+  border-color: white transparent transparent transparent;
+}
+
+.pag-sel .select-selected{
+  color: white;
+  margin-right: 10px;
+}
+.pag-list{
+  padding-left: 0px;
+}
+.pag-list > li{
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  color: #6A7D8E;
+  padding: 3px 5px;
+  margin: 0px 5px;
+  border: 0.75px solid transparent;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.pag-list > li:hover, .pag-list > li:focus{
+  background: #2AC940;
+  border: 0.75px solid #2AC940;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 @media only screen and (max-width: 1000px){

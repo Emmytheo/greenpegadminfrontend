@@ -5,6 +5,7 @@ import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col, Container } from 'react-bootstrap'
 import Select from '../basicComponents.js/select';
+import Button from "../basicComponents.js/button";
 
 
 function formatDate(str) {
@@ -88,12 +89,12 @@ class Table extends React.Component {
   state = { users: null }
 
   componentDidMount() {
-    // fetch('https://randomuser.me/api/1.1/?results=15')
-    //   .then(response => response.json())
-    //   .then(data => { 
-    //     this.setState({users: data.results});
-    //     console.log(data.results);
-    //   });
+    fetch('https://randomuser.me/api/1.1/?results=15')
+      .then(response => response.json())
+      .then(data => { 
+        this.setState({users: data.results});
+        console.log(data.results);
+      });
   }
 
   render() {
@@ -132,22 +133,33 @@ class Table extends React.Component {
                   <div className='pag-sel'>
                       <Select 
                       items={[
-                        {name: 1}
+                        {name: 5},
+                        {name: 10},
+                        {name: 20},
+                        {name: 50},
+                        {name: 100},
+                        
                       ]}
                     />
                   </div>
-                  
-                  <ul className='all-inline pag-list'>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                  </ul>
               </Card.Body>
             </Col>
             <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
               <Card.Body className='uk-float-right table-btm all-inline'>
+              <Button 
+                text={'Back'}
+                classes={[
+                  "no-fill", 
+                  "pad-bg-18", 
+                  "fnt-norm",
+                  "waves-effect",  
+                  "waves-light",
+                  "color-gray",
+                  "no-border",
+                  'hov-green'
+
+                  ]}
+                />
                 <ul className='all-inline pag-list'>
                   <li>1</li>
                   <li>2</li>
@@ -155,6 +167,19 @@ class Table extends React.Component {
                   <li>4</li>
                   <li>5</li>
                 </ul>
+                <Button 
+                  text={'Next'}
+                  classes={[
+                    "no-fill", 
+                    "pad-bg-18", 
+                    "fnt-norm",
+                    "waves-effect",  
+                    "waves-light",
+                    "color-gray",
+                    "no-border",
+                    'hov-green'
+                  ]}
+                />
               </Card.Body>
             </Col>
         </Row>

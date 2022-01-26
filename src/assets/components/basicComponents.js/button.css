@@ -61,6 +61,9 @@
     font-weight: 700;
 
 }
+.hov-green:hover, .hov-green:focus{
+    color: #2AC940;
+}
 
 @media only screen and (max-width: 1197px){
     .pad-bg-18{
