@@ -62,6 +62,9 @@ tr.expandable > td > .inner {
   border-radius: 3px;
   
 }
+.pag-sel .select-items div,.select-selected{
+  margin-right: 10px;
+}
 
 .pag-sel .custom-select .select-selected:after{
   border-color: white transparent transparent transparent;

@@ -54,7 +54,7 @@ const LockScreen = (props) => {
 
     return(
         <div className="auth">
-            <div className="bg"></div>
+            <div className="bg">
             <Container fluid>
                 <Row className="align-items-center justify-content-center no-padding">
                     <Col md={8} lg={6} xl={5} xxl={4}>
@@ -103,6 +103,8 @@ const LockScreen = (props) => {
                     </Col>
                 </Row>
             </Container>
+            </div>
+            
 
         </div>
     )
