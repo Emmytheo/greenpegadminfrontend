@@ -126,6 +126,13 @@ class Table extends React.Component {
             </table>
           </div>
           <br/>
+          {
+            users && users.length > 0 ? (
+              <div>
+                
+              </div>
+            ): null 
+          }
           <Row>
             <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
               <Card.Body className='uk-float-left table-btm all-inline'>
@@ -146,6 +153,7 @@ class Table extends React.Component {
             </Col>
             <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
               <Card.Body className='uk-float-right table-btm all-inline'>
+
               <Button 
                 text={'Back'}
                 classes={[

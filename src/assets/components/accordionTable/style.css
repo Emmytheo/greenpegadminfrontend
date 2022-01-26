@@ -48,8 +48,7 @@ tr.expandable > td > .inner {
 }
 
 .pag-sel{
-  width: 54px;
-  
+  width: 64px;
   font-size: 12px;
   
 }
@@ -63,15 +62,18 @@ tr.expandable > td > .inner {
   
 }
 .pag-sel .select-items div,.select-selected{
-  margin-right: 10px;
+  padding: 0px;
+  /* padding-right: 5px; */
 }
 
 .pag-sel .custom-select .select-selected:after{
   border-color: white transparent transparent transparent;
+  margin-left: 5px;
 }
 
 .pag-sel .custom-select .select-selected.select-arrow-active:after {
   border-color: white transparent transparent transparent;
+  margin-left: 5px;
 }
 
 .pag-sel .select-selected{
