@@ -82,6 +82,8 @@ tr.expandable > td > .inner {
 }
 .pag-list{
   padding-left: 0px;
+  display: inline-flex !important;
+  flex-wrap: wrap;
 }
 .pag-list > li{
   font-family: Product Sans;
@@ -105,8 +107,24 @@ tr.expandable > td > .inner {
   -o-border-radius: 3px;
 }
 
+.uk-checkbox, .uk-checkbox, .uk-radio {
+  background-color: transparent !important;
+  border-color:  #2AC940 !important;
+}
+.uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked {
+  background-color: #2AC940 !important;
+  border-color: transparent !important;
+}
+.pag-list{
+  
+}
+
 @media only screen and (max-width: 1000px){
   .table-btm{
     float: none;
   }
+ 
 }
+/* @media only screen and (min-width: 1600px){
+  
+} */

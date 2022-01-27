@@ -21,6 +21,9 @@ function capitalize(str) {
 
 function paginate(limit, total) {
   var step = total.length/limit;
+  if(parseInt(step) === 0){
+    step = 1;
+  }
   var rem = total.length % limit;
   var pages = {};
   var datta = '';
@@ -37,7 +40,7 @@ function paginate(limit, total) {
     pages[last_index + 1] = [];
     for (let inx = (last_index)*limit; inx < total.length; inx++) {
       datta = total[inx];
-      datta['index'] = inx;
+      datta['index'] = inx + 1;
       pages[last_index + 1].push(datta);
     }
   }
@@ -148,6 +151,46 @@ function recalibrate(_this, _data){
   _this.setState({users: dta[pge_num]});
   _this.setState({data: _data.results});
   _this.setState({parsed: dta});
+  console.log(pge);
+  console.log(dta)
+}
+
+function setPagLimit(data){
+  var limits = [5, 10, 20];
+  var final_limits = [{
+    name: 5
+  }];
+  
+  limits.forEach(ele => {
+    if(ele <= data.length){
+      final_limits.push({
+        name: ele
+      });
+    }
+    else{
+      if(ele === 20){
+        if(data.length > 20){
+          var mult = 10;
+          for(let ind = 0; ind < limits.length; ind++){
+            if(limits[ind] * mult <= data.length){
+              final_limits.push({
+                name: limits[ind] * mult
+              });
+            }
+            else{
+              if(data.length > limits[ind] * mult && ind == limits.length - 1){
+                mult *= 10;
+                ind = 0;
+              }
+            }
+          }
+        }
+
+
+      }
+    }
+  });
+  return final_limits;
 }
 
 
@@ -223,7 +266,7 @@ class Table extends React.Component {
   state = { users: null, data: null, parsed: null }
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/1.1/?results=10')
+    fetch('https://randomuser.me/api/1.1/?results=105')
       .then(response => response.json())
       .then(data => { 
         var dta = paginate(pge, data.results);
@@ -258,7 +301,7 @@ class Table extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {isLoading
+                {isLoading && parsed == null
                   ? <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>
                   : users.map((user, index) =>
                       <UserTableRow key={index} index={user.index} user={user}/>
@@ -277,17 +320,13 @@ class Table extends React.Component {
                     <Card.Body className='uk-float-left table-btm all-inline'>
                         <p className=''>Show rows :</p>
                         <div className='pag-sel'>
-                            <Select 
-                              items={[
-                                {name: 5},
-                                {name: 5},
-                                {name: 10},
-                                {name: 20},
-                                {name: 50},
-                                {name: 100},
-                              
-                              ]}
-                            />
+                            {parsed == null
+                              ? null
+                              : <Select 
+                                  items={setPagLimit(data)}
+                                />
+                            }
+                            
                         </div>
                     </Card.Body>
                   </Col>
