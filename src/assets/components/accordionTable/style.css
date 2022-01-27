@@ -107,7 +107,7 @@ tr.expandable > td > .inner {
   -o-border-radius: 3px;
 }
 
-.uk-checkbox, .uk-checkbox, .uk-radio {
+.uk-checkbox, .uk-radio {
   background-color: transparent !important;
   border-color:  #2AC940 !important;
 }

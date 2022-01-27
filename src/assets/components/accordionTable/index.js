@@ -143,16 +143,16 @@ function setup(_this, data){
 function currentPg(pg_num, data, _this){
   pge_num = pg_num;
   var pg = paginate(pge, data);
-  _this.setState({users: pg[pg_num]});
+  _this.setState({users: pg[pge_num]});
+  _this.setState({data: data});
+  _this.setState({parsed: pg});
 }
 
 function recalibrate(_this, _data){
   var dta = paginate(pge, _data.results);
-  _this.setState({users: dta[pge_num]});
+  _this.setState({users: dta[1]});
   _this.setState({data: _data.results});
   _this.setState({parsed: dta});
-  console.log(pge);
-  console.log(dta)
 }
 
 function setPagLimit(data){
@@ -264,19 +264,19 @@ class UserTableRow extends React.Component {
 
 class Table extends React.Component {
   state = { users: null, data: null, parsed: null }
+  props = { usrs: null };
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/1.1/?results=105')
-      .then(response => response.json())
-      .then(data => { 
-        var dta = paginate(pge, data.results);
-        this.setState({users: dta[pge_num]});
-        this.setState({data: data.results});
-        this.setState({parsed: dta});
-        console.log(dta);
-        console.log(data.results);
-        setup(this, data);
-      });
+    // fetch('https://randomuser.me/api/1.1/?results=105')
+    //   .then(response => response.json())
+    //   .then(data => { 
+    //     var dta = paginate(pge, data.results);
+    //     this.setState({users: dta[pge_num]});
+    //     this.setState({data: data.results});
+    //     this.setState({parsed: dta});
+    //     setup(this, data);
+    //   });
+    // console.log(this.props.usrs);
     
   }
 
@@ -284,7 +284,14 @@ class Table extends React.Component {
 
   render() {
     const { users, data, parsed } = this.state;
+    const { usrs } = this.props;
+    console.log(usrs);
+    if(usrs !== null){
+      recalibrate(this, usrs);
+    }
     const isLoading = users === null;
+    
+    // this.setState({data: usrs});
     return (
       <main>
         <div className="table-container">
@@ -383,4 +390,4 @@ class Table extends React.Component {
 }
 
 export default Table;
-// render(<App />, document.getElementById('root'));
+
