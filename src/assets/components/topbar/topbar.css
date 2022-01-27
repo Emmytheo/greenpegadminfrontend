@@ -13,12 +13,13 @@
     -moz-transition: margin-left .2s ease-in;
     -ms-transition: margin-left .2s ease-in;
     -o-transition: margin-left .2s ease-in;
+    background: white;
     
 }
 .top-bar.inactive{
     margin-left: 70px;
     padding-right: 70px;
-    background: white;
+    
 }
 
 .bottom-shadow {
