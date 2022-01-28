@@ -252,10 +252,10 @@ class UserTableRow extends React.Component {
       //   <td>{capitalize(user.location.city)} ({user.nat})</td>
       //   <td>{formatDate(user.registered)}</td>
       // </tr>,
-      (
-        this.generateRow(type)
-      ),
-      
+      // (
+      //   this.generateRow(type)
+      // ),
+      this.generateRow(type),
       
       this.state.expanded && (
         <tr className="expandable" key="tr-expander">

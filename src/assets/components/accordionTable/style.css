@@ -33,6 +33,14 @@ tr.expandable > td > .inner {
   line-height: 16px;
   color: #6A7D8E;
 }
+.uk-table th{
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 16px;
+  color: #6A7D8E;
+}
 
 
 .uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd){
@@ -125,7 +133,7 @@ tr.expandable > td > .inner {
   border-color: transparent !important;
 }
 .uk-table-hover tbody tr:hover, .uk-table-hover>tr:hover {
-  background: rgba(180, 189, 189, 0.432);
+  background: rgba(180, 189, 189, 0.247);
   font-weight: bold;
   
 }
