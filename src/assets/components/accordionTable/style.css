@@ -42,6 +42,9 @@ tr.expandable > td > .inner {
   color: #6A7D8E;
 }
 
+.uk-table th {
+  text-transform: none;
+}
 
 .uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd){
   border-top: none; 

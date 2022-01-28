@@ -199,9 +199,20 @@ function setPagLimit(data){
 class UserTableRow extends React.Component {
   state = { expanded: false }
 
+  componentDidMount() {
+    // var y = document.getElementsByClassName('table-row');
+    // for (let index = 0; index < y.length; index++) {
+    //   const element = y[index];
+    //   element.addEventListener("click", this.toggleExpander);
+    //   console.log(element);
+
+      
+    // }
+  }
+
   toggleExpander = (e) => {
     if (e.target.type === 'checkbox') return;
-
+    console.log(e);
     if (!this.state.expanded) {
       this.setState(
         { expanded: true },
@@ -217,17 +228,18 @@ class UserTableRow extends React.Component {
       });
     }
   }
+  
   generateRow = (typ) => {
     var user = this.props.user;
     var index = this.props.index;
-    var outp = '';
+    var outp = [];
     switch (typ) {
       // case 'requests':
         
       //   break;
       default:
-        outp = 
-          <tr key="main" onClick={`${this.toggleExpander}`}>
+        outp[0] = 
+          <tr key="main" className="table-row" onClick={this.toggleExpander}>
             <td><input className="uk-checkbox" type="checkbox" /></td>
             <td className="uk-text-nowrap">{`${index}`}.</td>
             <td><img className="uk-preserve-width uk-border-circle" src={`${user.picture.thumbnail}`} width={48} alt="avatar" /></td>
@@ -236,6 +248,33 @@ class UserTableRow extends React.Component {
             <td>{formatDate(`${user.registered}`)}</td>
           </tr>
         ;
+        outp[1] = this.state.expanded && (
+          <tr className="expandable" key="tr-expander">
+            <td className="uk-background-muted" colSpan={6}>
+              <div ref="expanderBody" className="inner uk-grid">
+                <div className="uk-width-1-4 uk-text-center">
+                  <img className="uk-preserve-width uk-border-circle" src={user.picture.large} alt="avatar" />
+                </div>
+                <div className="uk-width-3-4">
+                  <h3>{capitalize(user.name.first + ' ' + user.name.last)}</h3>
+                  <p>
+                    Address:<br/>
+                    <i>
+                      {capitalize(user.location.street)}<br/>
+                      {user.location.postcode} {capitalize(user.location.city)}<br/>
+                      {user.nat}
+                    </i>
+                  </p>
+                  <p>
+                    E-mail: {user.email}<br/>
+                    Phone: {user.phone}
+                  </p>
+                  <p>Date of birth: {formatDate(user.dob)}</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        )
         break;
     }
     return outp;
@@ -244,46 +283,7 @@ class UserTableRow extends React.Component {
   render() {
     const { user, type } = this.props;
     return [
-      // <tr key="main" onClick={this.toggleExpander}>
-      //   <td><input className="uk-checkbox" type="checkbox" /></td>
-      //   <td className="uk-text-nowrap">{this.props.index}.</td>
-      //   <td><img className="uk-preserve-width uk-border-circle" src={user.picture.thumbnail} width={48} alt="avatar" /></td>
-      //   <td>{capitalize(user.name.first + ' ' + user.name.last)}<br /><small>{user.email}</small></td>
-      //   <td>{capitalize(user.location.city)} ({user.nat})</td>
-      //   <td>{formatDate(user.registered)}</td>
-      // </tr>,
-      // (
-      //   this.generateRow(type)
-      // ),
-      this.generateRow(type),
-      
-      this.state.expanded && (
-        <tr className="expandable" key="tr-expander">
-          <td className="uk-background-muted" colSpan={6}>
-            <div ref="expanderBody" className="inner uk-grid">
-              <div className="uk-width-1-4 uk-text-center">
-                <img className="uk-preserve-width uk-border-circle" src={user.picture.large} alt="avatar" />
-              </div>
-              <div className="uk-width-3-4">
-                <h3>{capitalize(user.name.first + ' ' + user.name.last)}</h3>
-                <p>
-                  Address:<br/>
-                  <i>
-                    {capitalize(user.location.street)}<br/>
-                    {user.location.postcode} {capitalize(user.location.city)}<br/>
-                    {user.nat}
-                  </i>
-                </p>
-                <p>
-                  E-mail: {user.email}<br/>
-                  Phone: {user.phone}
-                </p>
-                <p>Date of birth: {formatDate(user.dob)}</p>
-              </div>
-            </div>
-          </td>
-        </tr>
-      )
+      this.generateRow(type)
     ];
   }
 }
@@ -303,9 +303,46 @@ class Table extends React.Component {
         this.setState({data: data.results});
         this.setState({parsed: dta});
         setup(this, data);
+        
+        
       });
-    // console.log(this.props.usrs);
     
+  }
+  generateHead = (typ) => {
+    var outph = '';
+    switch (typ) {
+      case 'request':
+        outph = 
+          <thead>
+            <tr>
+              <th className="uk-table-shrink" />
+              <th className="uk-table-shrink" />
+              <th>Name</th>
+              <th>Company</th>
+              <th>Email</th>
+              <th/>
+            </tr>
+          </thead>
+        ;
+        break;
+    
+      default:
+        outph = 
+          <thead>
+            <tr>
+              <th className="uk-table-shrink" />
+              <th className="uk-table-shrink" />
+              <th className="uk-table-shrink"  style={{textTransformStyle: "Capitalize"}}>Avatar</th>
+              <th>Fullname</th>
+              <th>City</th>
+              <th>Registered</th>
+            </tr>
+          </thead>
+        ;
+        break;
+    }
+    return outph;
+
   }
 
   
@@ -323,16 +360,9 @@ class Table extends React.Component {
         <div className="table-container">
           <div className="uk-overflow-auto">
             <table className="uk-table uk-table-hover uk-table-striped uk-table-small">
-              <thead>
-                <tr>
-                  <th className="uk-table-shrink" />
-                  <th className="uk-table-shrink" />
-                  <th className="uk-table-shrink">Avatar</th>
-                  <th>Fullname</th>
-                  <th>City</th>
-                  <th>Registered</th>
-                </tr>
-              </thead>
+              {
+                this.generateHead(type)
+              }
               <tbody>
                 {isLoading && parsed == null
                   ? <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>
