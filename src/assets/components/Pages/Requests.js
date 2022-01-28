@@ -12,7 +12,6 @@ import Table from "../accordionTable";
 
 const Requests = (props) => {
     const [inactive, setInactive] = useState(false) ;
-    const [dat, setDat] = useState(null) ;
     const select1 = [
         {name: "Categories (OEMs)"},
         {name: "Endress+Hauser (125)"},
@@ -54,11 +53,11 @@ const Requests = (props) => {
     
     useEffect(() => {
         new init();
-        fetch('https://randomuser.me/api/1.1/?results=105')
-        .then(response => response.json())
-        .then(data => { 
-            setDat(data);
-        }); 
+        // fetch('https://randomuser.me/api/1.1/?results=105')
+        // .then(response => response.json())
+        // .then(data => { 
+        //     setDat(data);
+        // }); 
     }, [])
     
     // fetch('https://randomuser.me/api/1.1/?results=105')
@@ -195,7 +194,7 @@ const Requests = (props) => {
                                 <center id="table">
                                     {
                                         <Table 
-                                            usrs={dat}
+                                            type={'requests'}
                                         />
                                     }
                                     

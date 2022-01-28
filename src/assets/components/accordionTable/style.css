@@ -26,6 +26,15 @@ tr.expandable > td > .inner {
   overflow: hidden;
 }
 
+.uk-table td{
+  font-family: Product Sans;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 16px;
+  color: #6A7D8E;
+}
+
+
 .uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd){
   border-top: none; 
   border-bottom: none;
@@ -115,7 +124,9 @@ tr.expandable > td > .inner {
   background-color: #2AC940 !important;
   border-color: transparent !important;
 }
-.pag-list{
+.uk-table-hover tbody tr:hover, .uk-table-hover>tr:hover {
+  background: rgba(180, 189, 189, 0.432);
+  font-weight: bold;
   
 }
 

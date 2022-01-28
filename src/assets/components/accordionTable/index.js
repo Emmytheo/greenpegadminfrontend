@@ -217,18 +217,46 @@ class UserTableRow extends React.Component {
       });
     }
   }
+  generateRow = (typ) => {
+    var user = this.props.user;
+    var index = this.props.index;
+    var outp = '';
+    switch (typ) {
+      // case 'requests':
+        
+      //   break;
+      default:
+        outp = 
+          <tr key="main" onClick={`${this.toggleExpander}`}>
+            <td><input className="uk-checkbox" type="checkbox" /></td>
+            <td className="uk-text-nowrap">{`${index}`}.</td>
+            <td><img className="uk-preserve-width uk-border-circle" src={`${user.picture.thumbnail}`} width={48} alt="avatar" /></td>
+            <td>{capitalize(`${user.name.first}` + ' ' + `${user.name.last}`)}<br /><small>{`${user.email}`}</small></td>
+            <td>{capitalize(`${user.location.city}`)} ({`${user.nat}`})</td>
+            <td>{formatDate(`${user.registered}`)}</td>
+          </tr>
+        ;
+        break;
+    }
+    return outp;
+  }
 
   render() {
-    const { user } = this.props;
+    const { user, type } = this.props;
     return [
-      <tr key="main" onClick={this.toggleExpander}>
-        <td><input className="uk-checkbox" type="checkbox" /></td>
-        <td className="uk-text-nowrap">{this.props.index}.</td>
-        <td><img className="uk-preserve-width uk-border-circle" src={user.picture.thumbnail} width={48} alt="avatar" /></td>
-        <td>{capitalize(user.name.first + ' ' + user.name.last)}<br /><small>{user.email}</small></td>
-        <td>{capitalize(user.location.city)} ({user.nat})</td>
-        <td>{formatDate(user.registered)}</td>
-      </tr>,
+      // <tr key="main" onClick={this.toggleExpander}>
+      //   <td><input className="uk-checkbox" type="checkbox" /></td>
+      //   <td className="uk-text-nowrap">{this.props.index}.</td>
+      //   <td><img className="uk-preserve-width uk-border-circle" src={user.picture.thumbnail} width={48} alt="avatar" /></td>
+      //   <td>{capitalize(user.name.first + ' ' + user.name.last)}<br /><small>{user.email}</small></td>
+      //   <td>{capitalize(user.location.city)} ({user.nat})</td>
+      //   <td>{formatDate(user.registered)}</td>
+      // </tr>,
+      (
+        this.generateRow(type)
+      ),
+      
+      
       this.state.expanded && (
         <tr className="expandable" key="tr-expander">
           <td className="uk-background-muted" colSpan={6}>
@@ -264,18 +292,18 @@ class UserTableRow extends React.Component {
 
 class Table extends React.Component {
   state = { users: null, data: null, parsed: null }
-  props = { usrs: null };
+  props = { type: null };
 
   componentDidMount() {
-    // fetch('https://randomuser.me/api/1.1/?results=105')
-    //   .then(response => response.json())
-    //   .then(data => { 
-    //     var dta = paginate(pge, data.results);
-    //     this.setState({users: dta[pge_num]});
-    //     this.setState({data: data.results});
-    //     this.setState({parsed: dta});
-    //     setup(this, data);
-    //   });
+    fetch('https://randomuser.me/api/1.1/?results=105')
+      .then(response => response.json())
+      .then(data => { 
+        var dta = paginate(pge, data.results);
+        this.setState({users: dta[pge_num]});
+        this.setState({data: data.results});
+        this.setState({parsed: dta});
+        setup(this, data);
+      });
     // console.log(this.props.usrs);
     
   }
@@ -284,14 +312,12 @@ class Table extends React.Component {
 
   render() {
     const { users, data, parsed } = this.state;
-    const { usrs } = this.props;
-    console.log(usrs);
-    if(usrs !== null){
-      recalibrate(this, usrs);
+    const { type } = this.props;
+    console.log(type);
+    if(type !== null){
+      console.log(type);
     }
     const isLoading = users === null;
-    
-    // this.setState({data: usrs});
     return (
       <main>
         <div className="table-container">
@@ -311,7 +337,7 @@ class Table extends React.Component {
                 {isLoading && parsed == null
                   ? <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>
                   : users.map((user, index) =>
-                      <UserTableRow key={index} index={user.index} user={user}/>
+                      <UserTableRow key={index} index={user.index} user={user} type={type}/>
                     )
                 }
               </tbody>
