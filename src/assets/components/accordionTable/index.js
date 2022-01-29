@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col, Container } from 'react-bootstrap'
 import Select from '../basicComponents.js/select';
 import Button from "../basicComponents.js/button";
+import firepump from '../../images/greenpegs/fire-pump-set1 3.png'
 var pge = 5;
 var pge_num = 1;
 
@@ -248,8 +249,8 @@ class UserTableRow extends React.Component {
         outp[1] = this.state.expanded && (
           <tr className="expandable" key="tr-expander">
             <td className="uk-background-muted" colSpan={6}>
-              <div ref="expanderBody" className="inner uk-grid prd-sans">
-                <div className="uk-width-1-4">
+              <div ref="expanderBody" className="inner uk-grid uk-width-expand uk-child-width-expand prd-sans no-height">
+                <div>
                   <h6>{capitalize(user.name.first + ' ' + user.name.last)}</h6>
                   <br/>
                   <p className="fnt-light-grey fnt-size-13 no-margins">
@@ -283,25 +284,43 @@ class UserTableRow extends React.Component {
                   </span>
 
                 </div>
-                <div className="uk-width-1-4">
-                  <h5>{capitalize(user.name.first + ' ' + user.name.last)}</h5>
-                  <p>
-                    Address:<br/>
-                    <i>
-                      {capitalize(user.location.street)}<br/>
-                      {user.location.postcode} {capitalize(user.location.city)}<br/>
-                      {user.nat}
-                    </i>
-                  </p>
-                  <p>
-                    E-mail: {user.email}<br/>
-                    Phone: {user.phone}
-                  </p>
-                  <p>Date of birth: {formatDate(user.dob)}</p>
+                <div className="uk-width-1-2@s uk-width-1-2@l  ">
+                  <div className="brk-wrd">
+                    <h5>{capitalize("S SERIES GEARBOX COUPLED WITH ELECTRIC MOTOR")}</h5>
+                    <br/>
+                    <h6 className="req-body">
+                      I will like you to give us quotation for the procurement of this drive<br/> 
+                      for maintenance of our equipment. Note i will like to have the full<br/> 
+                      specification for the equipment.<br/>
+                    </h6>
+                    <p>
+                      <br/>
+                      <br/>
+                      Regards.
+                    </p>
+                    <p>
+                      <br/>
+                      <br/>
+                      Soyingbe B
+                    </p>
+                    <Button 
+                        text={'Reply Now'}
+                        classes={[
+                            "btn-primary", 
+                            "w-sm", 
+                            "waves-effect", 
+                            "reply-now", 
+                            "waves-light"
+                        ]}
+                    />
+                  </div>                  
                 </div>
-                <div className="uk-width-1-4">
-                  <img className="uk-preserve-width uk-border-circle" src={user.picture.large} alt="avatar" />
+                <div className="inner uk-width-1-2@s uk-width-1-3@l">
+                  <img className="uk-preserve-width uk-card-body brk-wrd uk-card uk-card-default uk-border-square" src={firepump} alt="avatar" />
                 </div>
+                
+                
+                
               </div>
             </td>
           </tr>
@@ -361,7 +380,7 @@ class UserTableRow extends React.Component {
 
 
 class Table extends React.Component {
-  state = { users: null, data: null, parsed: null }
+  state = { users: null, data: null, parsed: null, errState: false }
   props = { type: null };
 
   componentDidMount() {
@@ -372,6 +391,7 @@ class Table extends React.Component {
       .then((response) => {
         if(response == undefined){
           console.log("No Response from the server, Please Check your internet connection and reload the page")
+          this.setState({errState: true});
         }
         else{
           response.json()
@@ -444,14 +464,30 @@ class Table extends React.Component {
     return outph;
 
   }
-  generateNull = (typ) => {
-
+  generateNull = (typ, err) => {
+    var outph = [];
+    if(err){
+      outph[0] = <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Check Your Internet Connection</em></td></tr>;
+    }
+    else{
+      switch (typ) {
+        case 'request':
+          
+          break;
+      
+        default:
+          outph[0] = <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>;
+          break;
+      }
+    }
+    
+    return outph;
   }
 
   
 
   render() {
-    const { users, data, parsed } = this.state;
+    const { users, data, parsed, errState } = this.state;
     const { type } = this.props;
     if(type !== null){
     }
@@ -466,7 +502,7 @@ class Table extends React.Component {
               }
               <tbody>
                 {isLoading && parsed == null
-                  ? <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>
+                  ? this.generateNull(type, errState)
                   : users.map((user, index) =>
                       <UserTableRow key={index} index={user.index} user={user} type={type}/>
                     )

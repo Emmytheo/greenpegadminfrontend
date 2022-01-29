@@ -59,6 +59,16 @@ h6, h5, h4, h3, h2, h1{
 .side-margins-10{
     margin: 0px 10px;
 }
+.brk-wrd > *{
+    margin-right: 20px;
+}
+.req-body{
+    font-family: Product Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 163.3%;
+}
 
 @media only screen and (max-width: 600px) {
     .container.inactive {
