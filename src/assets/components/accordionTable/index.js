@@ -313,6 +313,8 @@ class UserTableRow extends React.Component {
                             "waves-light"
                         ]}
                     />
+                    <br/>
+                    <br/>
                   </div>                  
                 </div>
                 <div className="inner uk-width-1-2@s uk-width-1-3@l">
