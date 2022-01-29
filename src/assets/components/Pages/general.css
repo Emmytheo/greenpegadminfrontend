@@ -34,7 +34,7 @@
     margin-left: 123px;
 }
 .pad-10{
-    padding: 5px 10px;
+    padding: 8px 10px;
 }
 
 h6, h5, h4, h3, h2, h1{
@@ -55,6 +55,9 @@ h6, h5, h4, h3, h2, h1{
 }
 .no-margins{
     margin: 0px;
+}
+.no-padding{
+    padding: 0px;
 }
 .side-margins-10{
     margin: 0px 10px;

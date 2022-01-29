@@ -4,13 +4,10 @@ import TopBar from "../topbar/TopBar";
 
 
 const Admin = (props) => {
-    const [inactive, setInactive] = useState(false) ;
+    const [inactive, setInactive] = useState(props.inactiv) ;
     return (
         <div>
-            <SideMenu onCollapse={(inactive) => {
-                // console.log(inactive);
-                setInactive(inactive);
-            }} />
+            <SideMenu onCollapse={props.onCollapse} inactiv={props.inactiv} />
             <TopBar 
                 status={inactive}
             />

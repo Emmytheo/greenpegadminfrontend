@@ -36,7 +36,10 @@ const menuItems = [
 
 
 const SideMenu = (props) => {
-    const [inactive, setInactive] = useState(true);
+    const { onCollapse, inactiv } = props;
+    const [inactive, setInactive] = useState(inactiv);
+
+
     
 
     useEffect(() => {

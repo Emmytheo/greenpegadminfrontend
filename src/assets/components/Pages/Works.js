@@ -3,17 +3,14 @@ import SideMenu from "../sidemenu/SideMenu";
 import TopBar from "../topbar/TopBar";
 
 const Works = (props) => {
-    const [inactive, setInactive] = useState(false) ;
+    const [inactive, setInactive] = useState(props.inactiv) ;
     return (
         <div>
-            <SideMenu onCollapse={(inactive) => {
-                // console.log(inactive);
-                setInactive(inactive);
-            }} />
+            <SideMenu onCollapse={props.onCollapse} inactiv={props.inactiv} />
             <TopBar 
-                status={inactive}
+                status={props.inactiv}
             />
-            <div className={`container ${inactive ? 'inactive' : ''}`}>
+            <div className={`container ${inactive ? 'inactive' : ''} works`}>
                 <h1>Works</h1>
             </div>
             

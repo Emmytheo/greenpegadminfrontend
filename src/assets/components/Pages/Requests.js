@@ -11,7 +11,10 @@ import { NavLink } from "react-router-dom";
 import Table from "../accordionTable";
 
 const Requests = (props) => {
-    const [inactive, setInactive] = useState(false) ;
+    const [inactive, setInactive] = useState(props.inactiv) ;
+    
+    
+
     const select1 = [
         {name: "Categories (OEMs)"},
         {name: "Endress+Hauser (125)"},
@@ -53,31 +56,20 @@ const Requests = (props) => {
     
     useEffect(() => {
         new init();
-        // fetch('https://randomuser.me/api/1.1/?results=105')
-        // .then(response => response.json())
-        // .then(data => { 
-        //     setDat(data);
-        // }); 
     }, [])
-    
-    // fetch('https://randomuser.me/api/1.1/?results=105')
-    //     .then(response => response.json())
-    //     .then(data => { 
-    //         setDat(data);
-    // });
+    // props.onCollapse(inactive);
     
     
+    
+    console.log(props.inactiv);
 
     return (
         <div>
-            <SideMenu onCollapse={(inactive) => {
-                // console.log(inactive);
-                setInactive(inactive);
-            }} />
+            <SideMenu onCollapse={props.onCollapse} inactiv={props.inactiv} />
             <TopBar 
-                status={inactive}
+                status={props.inactiv}
             />
-            <div className={`container ${inactive ? 'inactive' : ''} requests`}>
+            <div className={`container ${props.inactiv ? 'inactive' : ''} requests`}>
                 <Row className="align-items-center justify-content-space-around row first">
                     <Col sm={12} md={6} lg={2} xl={2} xxl={2} className="all-inline">
                         
