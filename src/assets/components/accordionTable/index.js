@@ -162,14 +162,14 @@ function setPagLimit(data){
   }];
   
   limits.forEach(ele => {
+    
     if(ele <= data.length){
       final_limits.push({
         name: ele
       });
-    }
-    else{
       if(ele === 20){
         if(data.length > 20){
+          
           var mult = 10;
           for(let ind = 0; ind < limits.length; ind++){
             if(limits[ind] * mult <= data.length){
@@ -212,7 +212,6 @@ class UserTableRow extends React.Component {
 
   toggleExpander = (e) => {
     if (e.target.type === 'checkbox') return;
-    console.log(e);
     if (!this.state.expanded) {
       this.setState(
         { expanded: true },
@@ -234,9 +233,80 @@ class UserTableRow extends React.Component {
     var index = this.props.index;
     var outp = [];
     switch (typ) {
-      // case 'requests':
-        
-      //   break;
+      case 'requests':
+        outp[0] = 
+          <tr key="main" className="table-row" onClick={this.toggleExpander}>
+            <td><input className="uk-checkbox" type="checkbox" /></td>
+            <td className="uk-text-nowrap">{`${index}`}.</td>
+            <td>{capitalize(`${user.name.first}` + ' ' + `${user.name.last}`)}</td>
+            <td>{capitalize(`${user.location.city}`)} ({`${user.nat}`})</td>
+            <td><small>{`${user.email}`}</small></td>
+            <td></td>
+            
+          </tr>
+        ;
+        outp[1] = this.state.expanded && (
+          <tr className="expandable" key="tr-expander">
+            <td className="uk-background-muted" colSpan={6}>
+              <div ref="expanderBody" className="inner uk-grid prd-sans">
+                <div className="uk-width-1-4">
+                  <h6>{capitalize(user.name.first + ' ' + user.name.last)}</h6>
+                  <br/>
+                  <p className="fnt-light-grey fnt-size-13 no-margins">
+                    Phone
+                  </p>
+                  <p>
+                    {user.phone}
+                  </p>
+                  <br/>
+                  <p className="fnt-light-grey fnt-size-13 no-margins">
+                    Email Address
+                  </p>
+                  <p>
+                    {user.email}
+                  </p>
+                  <br/>
+                  <p className="fnt-light-grey fnt-size-13 no-margins">
+                    Company
+                  </p>
+                  <p>
+                    {capitalize(`${user.location.city}`)} ({`${user.nat}`})
+                  </p>
+                  <br/>
+                  <span className="all-inline">
+                    <p className="fnt-light-grey fnt-size-13 side-margins-10">
+                      {formatDate(user.dob)}
+                    </p>
+                    <p className="fnt-light-grey fnt-size-13 side-margins-10">
+                      Time
+                    </p>
+                  </span>
+
+                </div>
+                <div className="uk-width-1-4">
+                  <h5>{capitalize(user.name.first + ' ' + user.name.last)}</h5>
+                  <p>
+                    Address:<br/>
+                    <i>
+                      {capitalize(user.location.street)}<br/>
+                      {user.location.postcode} {capitalize(user.location.city)}<br/>
+                      {user.nat}
+                    </i>
+                  </p>
+                  <p>
+                    E-mail: {user.email}<br/>
+                    Phone: {user.phone}
+                  </p>
+                  <p>Date of birth: {formatDate(user.dob)}</p>
+                </div>
+                <div className="uk-width-1-4">
+                  <img className="uk-preserve-width uk-border-circle" src={user.picture.large} alt="avatar" />
+                </div>
+              </div>
+            </td>
+          </tr>
+        )
+        break;
       default:
         outp[0] = 
           <tr key="main" className="table-row" onClick={this.toggleExpander}>
@@ -295,23 +365,53 @@ class Table extends React.Component {
   props = { type: null };
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/1.1/?results=105')
-      .then(response => response.json())
-      .then(data => { 
-        var dta = paginate(pge, data.results);
-        this.setState({users: dta[pge_num]});
-        this.setState({data: data.results});
-        this.setState({parsed: dta});
-        setup(this, data);
+    fetch('https://randomuser.me/api/1.1/?results=50')
+      .catch(e => {
         
-        
+      })
+      .then((response) => {
+        if(response == undefined){
+          console.log("No Response from the server, Please Check your internet connection and reload the page")
+        }
+        else{
+          response.json()
+          .then(data => { 
+              console.log(data)
+              if(Object.keys(data).includes('results')){
+                if(data.results.length < 1){
+                  console.log('Data Packet is empty')
+                }
+                else{
+                  var dta = paginate(pge, data.results);
+                  this.setState({users: dta[pge_num]});
+                  this.setState({data: data.results});
+                  this.setState({parsed: dta});
+                  setup(this, data);
+                }
+              }
+              else{
+                if(Object.keys(data).includes('error')){
+                  console.log(data.error);
+                }
+                else{
+                  console.log("Bad Response");
+                }
+
+              }
+              
+            }
+          );
+          
+              
+        } 
       });
+      
     
   }
   generateHead = (typ) => {
     var outph = '';
     switch (typ) {
-      case 'request':
+      case 'requests':
         outph = 
           <thead>
             <tr>
@@ -344,22 +444,23 @@ class Table extends React.Component {
     return outph;
 
   }
+  generateNull = (typ) => {
+
+  }
 
   
 
   render() {
     const { users, data, parsed } = this.state;
     const { type } = this.props;
-    console.log(type);
     if(type !== null){
-      console.log(type);
     }
     const isLoading = users === null;
     return (
       <main>
         <div className="table-container">
           <div className="uk-overflow-auto">
-            <table className="uk-table uk-table-hover uk-table-striped uk-table-small">
+            <table className="uk-table uk-table-hover uk-table-striped uk-table-large">
               {
                 this.generateHead(type)
               }

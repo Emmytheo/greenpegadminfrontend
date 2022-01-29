@@ -36,7 +36,7 @@ const menuItems = [
 
 
 const SideMenu = (props) => {
-    const [inactive, setInactive] = useState(false);
+    const [inactive, setInactive] = useState(true);
     
 
     useEffect(() => {
