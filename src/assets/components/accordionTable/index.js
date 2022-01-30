@@ -382,7 +382,7 @@ class UserTableRow extends React.Component {
 
 
 class Table extends React.Component {
-  state = { users: null, data: null, parsed: null, errState: false }
+  state = { users: null, data: null, parsed: null, errState: false, smallsize: false }
   props = { type: null };
 
   componentDidMount() {
@@ -489,16 +489,21 @@ class Table extends React.Component {
   
 
   render() {
-    const { users, data, parsed, errState } = this.state;
-    const { type } = this.props;
-    if(type !== null){
+    const { users, data, parsed, errState, smallsize } = this.state;
+    var { type, big } = this.props;
+    if(big == null){
+      big = smallsize;
     }
+    // else{
+    //   // smallsize = big;
+      
+    // }
     const isLoading = users === null;
     return (
       <main>
         <div className="table-container">
           <div className="uk-overflow-auto">
-            <table className="uk-table uk-table-hover uk-table-striped uk-table-large">
+            <table className={`uk-table uk-table-hover uk-table-striped ${big ? "uk-table-small" : "uk-table-large"}`}>
               {
                 this.generateHead(type)
               }

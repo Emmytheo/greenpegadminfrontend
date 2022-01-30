@@ -65,6 +65,9 @@ h6, h5, h4, h3, h2, h1{
 .brk-wrd > *{
     margin-right: 20px;
 }
+.full-width{
+    width: 100%
+}
 .req-body{
     font-family: Product Sans;
     font-style: normal;

@@ -65,16 +65,17 @@ const Products = (props) => {
                                 />
                     </Col>
                     <Col sm={12} md={6} lg={4} xl={4} xxl={4}>
-                        <Card.Body className="pad-10">
+                        <Card.Body className="side-margins-10">
                         <Row>
-                            <Col xs={12} md={12} lg={8} xl={7} xxl={6} className="all-inline no-padding">
+                            <Col xs={6} md={6} lg={6} xl={6} xxl={7} className="all-inline no-padding">
                                 <InputField 
                                     classes={[
-                                        "search-inp"
+                                        "search-inp",
+                                        "full-width"
                                     ]}
                                 />
                             </Col>
-                            <Col xs={12} md={12} lg={4} xl={5} xxl={6} className="all-inline">
+                            <Col xs={6} md={6} lg={6} xl={6} xxl={5} className="all-inline">
                             <Button 
                                 text={'Search products'}
                                 classes={[
@@ -85,13 +86,31 @@ const Products = (props) => {
                                     "waves-light"
                                 ]}
                             />
-                                
-                                    
                             </Col>
                         </Row>
                         
                         
                         </Card.Body>
+                    </Col>
+                </Row>
+                <br/>
+                <br/>
+                <Row className="align-items-center justify-content-space-around">
+                    <Col md={12} lg={12} xl={12} xxl={12}>
+                        <Card  className={'table'}>
+                            <Card.Body>
+                                <center id="table">
+                                    {
+                                        <Table 
+                                            type={'products'}
+                                            big={true}
+                                        />
+                                    }
+                                    
+                                </center>
+                                
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row>
           </div>

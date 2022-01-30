@@ -187,6 +187,7 @@ const Requests = (props) => {
                                     {
                                         <Table 
                                             type={'requests'}
+                                            big={false}
                                         />
                                     }
                                     
