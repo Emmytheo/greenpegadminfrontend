@@ -30,6 +30,9 @@
 .all-inline > *{
     display: inline;
 }
+.all-marg-10 > *{
+    margin-right: 5px;
+}
 .container.inactive{
     margin-left: 123px;
 }

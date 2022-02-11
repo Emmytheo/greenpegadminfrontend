@@ -188,6 +188,8 @@ const Requests = (props) => {
                                         <Table 
                                             type={'requests'}
                                             big={false}
+                                            stripped={true}
+                                            divider={false}
                                         />
                                     }
                                     

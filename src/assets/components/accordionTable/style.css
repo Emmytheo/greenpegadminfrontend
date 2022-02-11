@@ -147,6 +147,12 @@ tr.expandable > td > .inner {
   }
  
 }
+
+.frame{
+  padding: 9px 11px;
+  border: 1.5px solid rgba(180, 189, 189, 0.3);
+  width: fit-content;
+}
 /* @media only screen and (min-width: 1600px){
   
 } */

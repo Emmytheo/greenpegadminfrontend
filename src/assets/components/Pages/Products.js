@@ -103,7 +103,9 @@ const Products = (props) => {
                                     {
                                         <Table 
                                             type={'products'}
-                                            big={true}
+                                            big={false}
+                                            stripped={false}
+                                            divider={true}
                                         />
                                     }
                                     

@@ -7,6 +7,7 @@ import { Card, Row, Col, Container } from 'react-bootstrap'
 import Select from '../basicComponents.js/select';
 import Button from "../basicComponents.js/button";
 import firepump from '../../images/greenpegs/fire-pump-set1 3.png'
+import endressCat from '../../images/greenpegs/Group 1749.png'
 var pge = 5;
 var pge_num = 1;
 
@@ -328,6 +329,43 @@ class UserTableRow extends React.Component {
           </tr>
         )
         break;
+      ;
+      case "products":
+          outp[0] = 
+          <tr key="main" className="table-row">
+            <td><input className="uk-checkbox" type="checkbox" /></td>
+            <td className="uk-text-nowrap">{`${index}`}.</td>
+            <td>
+              <div className="frame">
+                <img className="uk-preserve-width" src={`${user.picture.thumbnail}`} width={38} height={43} alt="avatar" />
+              </div>
+              
+            </td>
+            <td>
+              <p>
+                {capitalize(`${user.name.first}` + ' ' + `${user.name.last}`)}<br/><br/>
+                <div className="all-inline all-marg-10">
+                  <small>Edit</small>
+                  <small>View</small>
+                  <small>Delete</small>
+                </div>
+                
+                <br/>
+              </p>
+            </td>
+            <td><img className="uk-preserve-width" src={`${endressCat}`} width={80} alt="category" /></td>
+            <td>{capitalize(`${'000SKU'}`)}</td>
+            <td><small>{formatDate(user.dob)}</small></td>
+            
+            
+            
+            <td></td>
+            
+          </tr>;
+        break;
+        ;
+
+
       default:
         outp[0] = 
           <tr key="main" className="table-row" onClick={this.toggleExpander}>
@@ -382,7 +420,7 @@ class UserTableRow extends React.Component {
 
 
 class Table extends React.Component {
-  state = { users: null, data: null, parsed: null, errState: false, smallsize: false }
+  state = { users: null, data: null, parsed: null, errState: false, smallsize: false, strip: true, divide: false }
   props = { type: null };
 
   componentDidMount() {
@@ -446,7 +484,27 @@ class Table extends React.Component {
             </tr>
           </thead>
         ;
-        break;
+        break
+      ;
+
+      case 'products':
+        outph = 
+          <thead>
+            <tr>
+              <th className="uk-table-shrink" />
+              <th className="uk-table-shrink" />
+              <th>Product</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>SKU</th>
+              <th>Date Added</th>
+              <th/>
+            </tr>
+          </thead>
+        ;
+        break
+      ;
+
     
       default:
         outph = 
@@ -489,11 +547,18 @@ class Table extends React.Component {
   
 
   render() {
-    const { users, data, parsed, errState, smallsize } = this.state;
-    var { type, big } = this.props;
+    const { users, data, parsed, errState, smallsize, strip, divide } = this.state;
+    var { type, big, stripped, divider } = this.props;
     if(big == null){
       big = smallsize;
     }
+    if(stripped == null){
+      stripped = strip;
+    }
+    if(divider == null){
+      divider = divide;
+    }
+
     // else{
     //   // smallsize = big;
       
@@ -503,7 +568,7 @@ class Table extends React.Component {
       <main>
         <div className="table-container">
           <div className="uk-overflow-auto">
-            <table className={`uk-table uk-table-hover uk-table-striped ${big ? "uk-table-small" : "uk-table-large"}`}>
+            <table className={`uk-table uk-table-hover ${divider ? "uk-table-divider" : ""}  ${stripped ? "uk-table-striped" : ""} ${big ? "uk-table-small" : "uk-table-large"}`}>
               {
                 this.generateHead(type)
               }
