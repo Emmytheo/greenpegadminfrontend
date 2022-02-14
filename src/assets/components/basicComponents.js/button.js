@@ -15,7 +15,7 @@ const Button = (props) => {
     useEffect(()=>{})
     
     return(
-        <button className={cls} type="button">{text}</button>
+        <button className={cls} uk-toggle="target: #my-modal" type="button">{text}</button>
     )
 }
 

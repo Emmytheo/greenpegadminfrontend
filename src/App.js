@@ -111,36 +111,106 @@ const Application = () => {
     // return <Chat messages={messages} users={users} />;
     return(
       
-    <Router>
-      {/* <SideMenu onCollapse={(inactive) => {
-        // console.log(inactive);
-        setInactive(inactive);
-      }} /> */}
-      {/* <TopBar 
-        status={inactive}
-      /> */}
+      <Router>
       <Routes>
           <Route path={'/'} element={<LockScreen />}/>
-          <Route path={'/home'} element={<Home/>}/>
-          <Route path={'/requests'} element={<Requests data={ inactive } />}/>
-          <Route path={'/products'} element={<Products/>}/>
-          <Route path={'/blogs'} element={<Blogs/>}/>
-          <Route path={'/works'} element={<Works/>}/>
-          <Route path={'/oems'} element={<OEMs/>}/>
-          <Route path={'/careers'} element={<Careers/>}/>
-          <Route path={'/teams'} element={<Teams/>}/>
-          <Route path={'/events'} element={<Events/>}/>
-          <Route path={'/login'} element={<LoginPage/>}/>
-          <Route path={'/admin'} element={<Admin/>}/>
-          <Route path={'/settings'} element={<Settings/>}/>
-          <Route path={'/signup'} element={<SignUpPage/>}/>
-          <Route path={'/login'} element={<LoginPage />}/>
-          <Route path={'/signup'} element={<SignUpPage />}/>
-          <Route path={'/recover'} element={<RecoverPswd />}/>
+          <Route path={'/home'} element={<Home
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/requests'} element={<Requests 
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/products'} element={<Products
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/blogs'} element={<Blogs
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/works'} element={<Works
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/oems'} element={<OEMs
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/careers'} element={<Careers
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/teams'} element={<Teams
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/events'} element={<Events
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/login'} element={<LoginPage
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/admin'} element={<Admin
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/settings'} element={<Settings
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/signup'} element={<SignUpPage
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/login'} element={<LoginPage 
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/signup'} element={<SignUpPage 
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
+          <Route path={'/recover'} element={<RecoverPswd 
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+            inactiv = {inactive}
+          />}/>
       </Routes>
-      {/* <div className={`container ${inactive ? 'inactive' : ''}`}>
-        
-      </div> */}
     </Router>
     )
   }

@@ -85,6 +85,7 @@ const Products = (props) => {
                                     "no-border",
                                     "waves-light"
                                 ]}
+                                
                             />
                             </Col>
                         </Row>

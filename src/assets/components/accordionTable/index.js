@@ -8,6 +8,8 @@ import Select from '../basicComponents.js/select';
 import Button from "../basicComponents.js/button";
 import firepump from '../../images/greenpegs/fire-pump-set1 3.png'
 import endressCat from '../../images/greenpegs/Group 1749.png'
+import fireTransm from '../../images/greenpegs/pressure_transmitter 1.png'
+import Modal from "../modal/modal";
 var pge = 5;
 var pge_num = 1;
 
@@ -337,7 +339,7 @@ class UserTableRow extends React.Component {
             <td className="uk-text-nowrap">{`${index}`}.</td>
             <td>
               <div className="frame">
-                <img className="uk-preserve-width" src={`${user.picture.thumbnail}`} width={38} height={43} alt="avatar" />
+                <img className="uk-preserve-width" src={`${fireTransm}`} width={38} height={43} alt="avatar" />
               </div>
               
             </td>
@@ -527,21 +529,43 @@ class Table extends React.Component {
   generateNull = (typ, err) => {
     var outph = [];
     if(err){
-      outph[0] = <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Check Your Internet Connection</em></td></tr>;
-    }
-    else{
+      
       switch (typ) {
         case 'request':
           
           break;
+        ;
+        case 'products':
+          outph[0] = <tr><td colSpan={8} className="uk-text-center"><em className="uk-text-muted">Check Your Internet Connection</em></td></tr>;
+          break;
+        ;
       
         default:
-          outph[0] = <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>;
+          outph[0] = <tr><td colSpan={6} className="uk-text-center"><em className="uk-text-muted">Check Your Internet Connection</em></td></tr>;
+          break;
+      }
+    }
+    else{
+      var span = 6;
+      switch (typ) {
+        case 'requests':
+          span = 6;
+          break;
+        ;
+        case 'products':
+          span = 8;
+          break;
+        ;
+      
+        default:
+          span = 6;
           break;
       }
     }
     
-    return outph;
+    return (
+      <tr><td colSpan={span} className="uk-text-center"><em className="uk-text-muted">Loading...</em></td></tr>
+    );
   }
 
   
@@ -644,7 +668,9 @@ class Table extends React.Component {
                       />
                     </Card.Body>
                   </Col>
+                  <Modal/>
               </Row>
+              
             ): null 
           }
           
