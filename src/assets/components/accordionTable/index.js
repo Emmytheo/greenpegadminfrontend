@@ -556,6 +556,14 @@ class Table extends React.Component {
           span = 8;
           break;
         ;
+        case 'oems':
+          span = 8;
+          break;
+        ;
+        case 'works':
+          span = 8;
+          break;
+        ;
       
         default:
           span = 6;

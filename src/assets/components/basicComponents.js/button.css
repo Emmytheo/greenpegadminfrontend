@@ -108,3 +108,16 @@
         padding: 13px 10px;
     }
 }
+
+.btn-row{
+    background: rgba(106, 125, 142, 0.1);
+    border: 1px solid rgba(196, 205, 213, 0.3);
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.btn-row-active{
+    background: #2AC940;
+    border: 1px solid rgba(196, 205, 213, 0.3);
+    box-sizing: border-box;
+    border-radius: 2px;
+}
