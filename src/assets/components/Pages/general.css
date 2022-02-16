@@ -72,6 +72,9 @@ h6, h5, h4, h3, h2, h1{
 .side-margins-10{
     margin: 0px 10px;
 }
+.side-margins-10 > *{
+    margin: 0px 10px;
+}
 .brk-wrd > *{
     margin-right: 20px;
 }

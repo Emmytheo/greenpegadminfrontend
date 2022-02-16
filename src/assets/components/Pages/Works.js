@@ -9,6 +9,7 @@ import Button from "../basicComponents.js/button";
 import init from "../basicComponents.js/init";
 import { NavLink } from "react-router-dom";
 import Table from "../accordionTable";
+import NullComponent from "../basicComponents.js/nullComponent";
 
 const Works = (props) => {
     const [inactive, setInactive] = useState(props.inactiv) ;
@@ -90,7 +91,9 @@ const Works = (props) => {
                     <Col md={12} lg={12} xl={12} xxl={12}>
                         <Card  className={'table'}>
                             <Card.Body>
-                            <br></br>
+                            <Row>
+                                <Col className="side-margins-10" style={{overflow: 'auto'}}>
+                                <br></br>
                                 <br></br>
                                 <ul className="all-inline side-margins-10">
                                     <li>
@@ -155,13 +158,21 @@ const Works = (props) => {
                                     </li>
                                   
                                 </ul>
+                                </Col>
+                                
+                            </Row>
+                            
                                 <center id="table">
                                     {
-                                        <Table 
-                                            type={'requests'}
-                                            big={false}
-                                            stripped={true}
-                                            divider={false}
+                                        // <Table 
+                                        //     type={'requests'}
+                                        //     big={false}
+                                        //     stripped={true}
+                                        //     divider={false}
+                                        // />
+                                        <NullComponent
+                                            page={'project'}
+                                            action={null}
                                         />
                                     }
                                     

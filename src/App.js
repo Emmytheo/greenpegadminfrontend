@@ -41,7 +41,7 @@ const Application = () => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
   
-  const [inactive, setInactive] = useState(false) ;
+  const [inactive, setInactive] = useState(true) ;
 
     useEffect(() => {
       

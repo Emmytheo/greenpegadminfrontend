@@ -9,7 +9,7 @@ import Button from "../basicComponents.js/button";
 import init from "../basicComponents.js/init";
 import { NavLink } from "react-router-dom";
 import Table from "../accordionTable";
-// import ButtonList from "../basicComponents.js/button-list";
+import NullComponent from "../basicComponents.js/nullComponent";
 
 const OEMs = (props) => {
     const [inactive, setInactive] = useState(props.inactiv) ;
@@ -90,50 +90,59 @@ const OEMs = (props) => {
                 <Row className="align-items-center justify-content-space-around">
                     <Col md={12} lg={12} xl={12} xxl={12}>
                         <Card  className={'table'}>
-                            <Card.Body>
-                                <br></br>
-                                <br></br>
-                                <ul className="all-inline side-margins-10">
-                                    <li>
-                                        <Button 
-                                            text={'Products'}
-                                            classes={[
-                                                "search-prod",
-                                                "waves-effect", 
-                                                "no-border",
-                                                "waves-light",
-                                                'pad-12-28',
-                                                'btn-row-active',
-                                                'color-white'
-                                            ]}
+                            <Card.Body >
+                                <Row>
+                                    <Col className="side-margins-10" style={{overflow: 'auto'}}>
+                                    <br></br>
+                                    <br></br>
+                                    <ul className="all-inline side-margins-10">
+                                        <li>
+                                            <Button
+                                                text={'Products'}
+                                                classes={[
+                                                    "search-prod",
+                                                    "waves-effect", 
+                                                    "no-border",
+                                                    "waves-light",
+                                                    'pad-12-28',
+                                                    'btn-row-active',
+                                                    'color-white'
+                                                ]}
                                 
-                                        />
-                                    </li>
-                                    <li>
-                                        <Button 
-                                            text={'Service & Product'}
-                                            classes={[
-                                                "search-prod",
-                                                "waves-effect", 
-                                                "no-border",
-                                                "waves-light",
-                                                'pad-12-28',
-                                                'btn-row',
-                                                "color-gray",
-                                            ]}
+                                            />
+                                        </li>
+                                        <li>
+                                            <Button 
+                                                text={'Service & Product'}
+                                                classes={[
+                                                    "search-prod",
+                                                    "waves-effect", 
+                                                    "no-border",
+                                                    "waves-light",
+                                                    'pad-12-28',
+                                                    'btn-row',
+                                                    "color-gray",
+                                                ]}
                                 
-                                        />
-                                    </li>
-                                  
-                                </ul>
+                                            />
+                                        </li>
+                                    </ul>    
+                                    </Col>
+                                    
+                                </Row>
+                                
                                 
                                 <center id="table">
                                     {
-                                        <Table 
-                                            type={'request'}
-                                            big={false}
-                                            stripped={true}
-                                            divider={false}
+                                        // <Table 
+                                        //     type={'request'}
+                                        //     big={false}
+                                        //     stripped={true}
+                                        //     divider={false}
+                                        // />
+                                        <NullComponent
+                                            page={'partner'}
+                                            action={null}
                                         />
                                     }
                                     
